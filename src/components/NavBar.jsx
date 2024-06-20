@@ -6,11 +6,11 @@ const NavBar = () => {
     <nav className="transparent-nav sticky top-0 z-40 backdrop-filter backdrop-blur-xl border-b border-gray-500">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto pt-3 pb-4">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="img/As_casas_Logo-removebg.png" style={{ width: '180px', height: '50px' }} className="pl-1" alt="Logo" />
+          <img src="/img/As_casas_Logo-removebg.png" style={{ width: '180px', height: '50px' }} className="pl-1" alt="Logo" />
         </a>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <div className="flex items-center space-x-4">
-            <a href="#"><img src="img/instagram.png" alt="Logo Rede Social 1" className="h-7 transform transition-transform duration-300 hover:scale-110" /></a>
+            <a href="#"><img src="/instagram.png" alt="Logo Rede Social 1" className="h-7 transform transition-transform duration-300 hover:scale-110" /></a>
             <a href="#"><img src="img/youtube.png" alt="Logo Rede Social 2" className="h-7 transform transition-transform duration-300 hover:scale-110" /></a>
             {/* Adicione mais logos de redes sociais conforme necessário */}
           </div>
