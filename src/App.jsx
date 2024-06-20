@@ -2,9 +2,9 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import NavBar from './components/NavBar'
 
 //reaproveitar estrutura
-
 import {Outlet} from "react-router-dom"
 
 
@@ -15,6 +15,7 @@ function App() {
   return (
   
         <div>
+          <NavBar></NavBar>
           <h1>ol;a</h1>
           <Outlet></Outlet>
 
