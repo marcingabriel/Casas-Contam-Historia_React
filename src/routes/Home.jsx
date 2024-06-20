@@ -29,7 +29,7 @@ const Home = () => {
         <section className="mb-8 mt-8">
           <div className="flex flex-col lg:flex-row items-center">
             <div>
-              <h2 className="roboto text-2xl font-semibold mb-2 text-gray-700 opacity-0 animate-up">Sobre o município de Timóteo.</h2>
+              <h2 className="text-left roboto text-2xl font-semibold mb-2 text-gray-700 opacity-0 animate-up">Sobre o município de Timóteo.</h2>
               <p className="roboto text-lg text-gray-700 text-left opacity-0 animate-left">
                 Timóteo é um município brasileiro localizado no estado de Minas Gerais, na região sudeste do país. Faz parte da Região Metropolitana do Vale do Aço, que é uma das regiões mais industrializadas do estado. O município tem suas origens no século XIX, surgindo inicialmente como um pequeno povoado. Em 1938, foi incorporado como distrito do município de Antônio Dias. A partir de 1942, Timóteo começou a tomar sua forma atual, iniciando a transição de um núcleo rural para um centro industrial. Foi nesse contexto que o engenheiro Alderico Rodrigues de Paula recebeu a missão de identificar um local para a implantação de uma siderúrgica. Ele encontrou o local ideal na região onde hoje se localiza a cidade de Timóteo, possibilitando a instalação da ACESITA (Aços Especiais Itabira), que mais tarde se transformaria na APERAM South América. Após a fundação da siderúrgica, iniciou-se um processo de planejamento urbano em seu entorno. Foram projetados, além de um traçado urbano setorizado, bairros residenciais para os seus funcionários, como também toda infraestrutura, para quem ali viesse trabalhar, composta por centro comercial, escolas, hospital e clubes de lazer. Essas primeiras casas foram projetadas e construídas de forma padronizada, de acordo com a sua localização na malha urbana. Fazem parte da setorização urbana definida de início os bairros Quitandinha e Vila dos Técnicos, para que nas décadas seguinte viessem São Cristóvão, Alvorada, Timotinho, Garapa, Serenata, Funcionários, Timirim, Santa Maria, Olaria e Novo Horizonte, divididos de acordo com as divisões socioeconômicas e cargos exercidos na siderúrgica. (Quecini, 2007, p. 154, 155) Hoje, tais casas são vistas em menor quantidade, das 2734 construídas em 1958, menos de 150 possuem suas fachadas preservadas, este número está em constante diminuição devido às reformas e demolições que são feitas. A falta de sensibilidade, por grande parte dos munícipes, de que estes edifícios fazem parte do patrimônio histórico da cidade, tem como consequência o seu desaparecimento cotidiano. Apesar da visível falta de políticas públicas para a preservação do patrimônio histórico da cidade, é possível ver como existe um sentimento de preservação que ainda perdura entre alguns cidadãos de Timóteo. Porém o falso entendimento de que somente edificações do período colonial ou que tenham alguma arquitetura singular, dificulta a preservação da arquitetura produzida no século 20. QUECINI, Vanda Maria. Timóteo: O Legado Urbano de um Projeto Industrial. Tese de Doutorado – Universidade de São Paulo, Faculdade de Arquitetura e Urbanismo - FAUUSP. São Paulo, 2007.
               </p>
@@ -37,17 +37,17 @@ const Home = () => {
             <img src="img/MinasGerais_Municip_Timoteo.png" className="mb-4 lg:mb-0 lg:ml-4" alt="Mapa" />
           </div>
 
-          <h2 className="roboto text-2xl font-semibold mb-2 text-gray-700 opacity-0 animate-up mt-8">O que é o Projeto “As Casas contam história”.</h2>
+          <h2 className="text-left roboto text-2xl font-semibold mb-2 text-gray-700 opacity-0 animate-up mt-8">O que é o Projeto “As Casas contam história”.</h2>
           <p className="roboto text-lg text-gray-700 text-left opacity-0 animate-left">
             O mapa "As casas contam história" é um projeto que visa mapear e catalogar as residências ainda existentes na cidade de Timóteo, que foram construídas durante a fase de implantação da siderúrgica ACESITA, hoje APERAM, para atender aos seus funcionários. Ele registra não apenas a localização física dessas casas, mas também informações relevantes sobre sua história, arquitetura e contexto social. Este mapa serve como um inventário artístico e histórico, contribuindo para sensibilizar a população sobre a importância de preservar o patrimônio histórico de Timóteo e proteger suas edificações antigas.
           </p>
 
-          <h2 className="roboto text-2xl font-semibold mb-2 text-gray-700 opacity-0 animate-up mt-8">Objetivo.</h2>
+          <h2 className=" text-left  roboto text-2xl font-semibold mb-2 text-gray-700 opacity-0 animate-up mt-8">Objetivo.</h2>
           <p className="text-lg text-gray-700 text-left opacity-0 animate-left">
             O projeto tem como objetivo ser uma ferramenta, de fácil acesso, de educação patrimonial arquitetônica no município de Timóteo. Focado no patrimônio arquitetônico industrial residencial.
           </p>
 
-          <h2 className="roboto text-2xl font-semibold mb-2 text-gray-700 opacity-0 animate-up mt-8">Acessando as informações.</h2>
+          <h2 className="text-left  roboto text-2xl font-semibold mb-2 text-gray-700 opacity-0 animate-up mt-8">Acessando as informações.</h2>
           <p className="roboto text-lg text-gray-700 text-left opacity-0 animate-left">
             As casas mapeadas de Timóteo são identificadas com o ícone do mapa. Ao clicar nos ícones, o visitante terá acesso a um dossiê de informações da tipologia arquitetônica implantada no local, através de fotos atuais e um desenho da reconstituição original da fachada.
           </p>
