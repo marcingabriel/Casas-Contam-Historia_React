@@ -2,9 +2,9 @@ import React from 'react';
 
 const Sobre = () => {
   return (
-    <div className="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover">
+    <div className="font-sans text-gray-900 leading-normal tracking-wider bg-cover">
       <div className="flex items-center justify-center min-h-screen">
-        <div className="max-w-5xl flex items-center h-auto lg:h-screen flex-wrap my-32 lg:my-0">
+        <div className="max-w-5xl flex items-center h-auto  flex-wrap my-32 lg:my-0">
           <div id="profile" className="w-full rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-85 mx-6 lg:mx-0">
             <div className="p-4 md:p-20 text-center lg:text-left mt-10">
               <h1 className="text-3xl text-center font-bold pt-8 lg:pt-0">Sobre nós</h1>
@@ -100,7 +100,6 @@ const Sobre = () => {
           </div>
         </div>
       </div>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     </div>
   );
 };
