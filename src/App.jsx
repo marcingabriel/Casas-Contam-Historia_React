@@ -14,7 +14,7 @@ function App() {
   
         <div>
           <NavBar></NavBar>
-          <h1>ol;a</h1>
+
           <Outlet></Outlet>
 
         </div>
