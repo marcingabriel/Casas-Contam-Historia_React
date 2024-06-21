@@ -2,7 +2,7 @@ import React from 'react';
 import '../assets/style.css'
 import '../assets/style1.css'
 import useAnimateOnScroll from '../components/Animation';
-
+import CasasMain from '../components/CasasMain';
 
 
 const Home = () => {
@@ -55,13 +55,12 @@ const Home = () => {
       </div>
 
       <h1 className="text-3xl font-bold text-center text-gray-700 mt-8 mb-2 underline opacity-0 animate">Mapa</h1>
-      <div className="flex flex-col items-center justify-center">
-        <iframe id="meuMapa" src="https://www.google.com/maps/d/u/0/embed?mid=1W8_QiOSp1uzTWyAPHwDGDDFahhPzCUo&ehbc=2E312F" width="95%" height="600" className="ml-10 opacity-0 animate"></iframe>
-      </div>
+      <iframe id="meuMapa" src="https://www.google.com/maps/d/u/0/embed?mid=1W8_QiOSp1uzTWyAPHwDGDDFahhPzCUo&ehbc=2E312F"  height="700" className="w-full  opacity-0 animate"></iframe>
+
 
       <div className="container mx-auto mt-24">
         <h1 className="text-3xl font-bold text-center text-gray-600 mt-5 animate opacity-0">Galeria</h1>
-        <div id="root-index"></div>
+        <CasasMain></CasasMain>
 
         <div className="text-center mt-5">
           <a href="inventario.html">
@@ -93,7 +92,7 @@ const Home = () => {
               <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Ler mais
                 <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                 </svg>
               </a>
             </div>
@@ -113,7 +112,7 @@ const Home = () => {
               <a href="#" className="mt-2 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Ler mais
                 <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                 </svg>
               </a>
             </div>
