@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 
 //reaproveitar estrutura
 import {Outlet} from "react-router-dom"
@@ -14,8 +15,11 @@ function App() {
   
         <div>
           <NavBar></NavBar>
-
+          
           <Outlet></Outlet>
+
+          <Footer ></Footer>
+
 
         </div>
     
