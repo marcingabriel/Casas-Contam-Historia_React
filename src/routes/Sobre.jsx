@@ -5,7 +5,7 @@ const Sobre = () => {
     <div className="font-sans text-gray-900 leading-normal tracking-wider bg-cover">
       <div className="flex items-center justify-center min-h-screen">
         <div className="max-w-5xl flex items-center h-auto  flex-wrap my-32 lg:my-0">
-          <div id="profile" className="w-full rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-85 mx-6 lg:mx-0">
+          <div id="profile" className="w-full rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white mx-6 lg:mx-0">
             <div className="p-4 md:p-20 text-center lg:text-left mt-10">
               <h1 className="text-3xl text-center font-bold pt-8 lg:pt-0">Sobre nós</h1>
               <div className="mx-auto lg:mx-0 w-full pt-3 border-b-2 border-green-500 opacity-25"></div>

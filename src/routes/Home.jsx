@@ -9,16 +9,19 @@ const Home = () => {
   useAnimateOnScroll();
 
   return (
-    <div>
-      <div className="background-image filter brightness-75">
-        <div className="text-center">
-          <h1 className="custom-font text-6xl font-bold animate">
-            As casas contam história
-          </h1>
-          <p className="text-2xl mt-10 animate animate-delay-500">
-            Desde os anos 50, esses lares guardam as memórias e alegrias de diversas famílias.
-          </p>
+    <div>  
+      <div className="background-image filter brightness-75 bg-fixed bg-cover">
+        <div className="w-full h-72 bg-stone-400 bg-opacity-70">
+          <div className="text-center mt-10">
+            <h1 className="custom-font text-6xl font-bold animate">
+              As casas contam história
+            </h1>
+            <p className="text-2xl mt-10 animate animate-delay-500 text-center">
+              Desde os anos 50, esses lares guardam as memórias e alegrias de diversas famílias.
+            </p>
         </div>
+      </div>
+
       </div>
 
       <div className="content container mx-auto mt-custom px-4 lg:px-0">
@@ -60,9 +63,9 @@ const Home = () => {
 
       <div className="container mx-auto mt-24">
         <h1 className="text-3xl font-bold text-center text-gray-600 mt-5 animate opacity-0">Galeria</h1>
-        <CasasMain></CasasMain>
-
-        <div className="text-center mt-5">
+           <CasasMain ></CasasMain>
+           
+        <div className="text-center mt-5 animate">
           <a href="inventario.html">
             <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
               <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
@@ -75,9 +78,9 @@ const Home = () => {
 
       <h1 className="text-3xl font-bold text-center text-gray-700 mt-8 mb-2 opacity-0 animate">Depoimentos</h1>
 
-      <div className="container mx-auto relative z-10 items-center-center">
+      <div className="container mx-auto relative z-10 items-center-center animate-up">
         <div className="flex flex-col md:flex-row justify-center m-2 mt-8 space-y-8 md:space-y-0 md:space-x-8">
-          <div className="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div className="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 transition hover:shadow-xl">
             <a href="#">
               <img className="rounded-t-lg object-cover object-center md:h-2/5 w-full" src="img/desenhos/2.jpg" alt="Funcionários" />
             </a>

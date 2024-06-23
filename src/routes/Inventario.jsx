@@ -14,7 +14,7 @@ const Inventario = () => {
     <div className="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
 
 
-      <div className="carousel relative container mt-10 mx-auto max-w-screen-2xl " >
+      <div className="carousel relative container mt-14 mx-auto max-w-screen-2xl " >
         <div className="carousel-inner relative overflow-hidden w-full">
           <Component></Component>
         </div>
