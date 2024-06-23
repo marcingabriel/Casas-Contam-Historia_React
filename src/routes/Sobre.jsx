@@ -1,10 +1,12 @@
 import React from 'react';
+import {Component} from '../components/CardIntegrantes'
+import { Prof } from '../components/CardProf';
 
 const Sobre = () => {
   return (
     <div className="font-sans text-gray-900 leading-normal tracking-wider bg-cover">
       <div className="flex items-center justify-center min-h-screen">
-        <div className="max-w-5xl flex items-center h-auto  flex-wrap my-32 lg:my-0">
+        <div className="max-w-6xl flex items-center h-auto  flex-wrap my-32 lg:my-0">
           <div id="profile" className="w-full rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white mx-6 lg:mx-0">
             <div className="p-4 md:p-20 text-center lg:text-left mt-10">
               <h1 className="text-3xl text-center font-bold pt-8 lg:pt-0">Sobre nós</h1>
@@ -19,54 +21,13 @@ const Sobre = () => {
               </p>
 
               <h2 className="text-2xl text-center font-bold pt-8 lg:pt-0 mt-4">Integrantes</h2>
-              <ul className="pt-8 text-sm grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 mb-3">
-                <li className="flex items-start">
-                  <img src="img/sobre-nos/Larissa.png" alt="Larissa Sírio Coelho Penna" className="inline-block h-32 w-32 rounded-md mr-2" />
-                  <div>
-                    <strong>Larissa Sírio Coelho Penna</strong><br />
-                    Aluna do curso Arquitetura e Urbanismo<br />
-                    PETiana desde fevereiro de 2024
-                  </div>
-                </li>
-                <li className="mt-2 flex items-start">
-                  <img src="img/sobre-nos/maria.png" alt="Maria Júlia Loiola Vieira Cotta" className="inline-block h-36 w-32 rounded-md mr-2" />
-                  <div>
-                    <strong>Maria Júlia Loiola Vieira Cotta</strong><br />
-                    Aluna do curso Arquitetura e Urbanismo<br />
-                    PETiana desde fevereiro de 2024
-                  </div>
-                </li>
-                <li className="mt-2 flex items-start">
-                  <img src="img/sobre-nos/lara.png" alt="Lara" className="inline-block h-32 w-32 rounded-md mr-2" />
-                  <div>
-                    <strong>Lara</strong><br />
-                    Aluna do curso Arquitetura e Urbanismo<br />
-                  </div>
-                </li>
-                <li className="mt-2 flex items-start">
-                  <img src="img/sobre-nos/marcio.png" alt="Márcio Gabriel" className="inline-block h-36 w-32 rounded-md mr-2" />
-                  <div>
-                    <strong>Márcio Gabriel</strong><br />
-                    Aluno do curso Engenharia de Computação<br />
-                    PETiano desde fevereiro de 2024
-                  </div>
-                </li>
-                <li className="mt-2 flex items-start">
-                  <img src="img/sobre-nos/felipe.png" alt="Felipe" className="inline-block h-32 w-32 rounded-md mr-2" />
-                  <div>
-                    <strong>Felipe</strong><br />
-                    Aluno do curso Arquitetura e Urbanismo<br />
-                  </div>
-                </li>
-                <li className="mt-2 flex items-start">
-                  <img src="img/sobre-nos/fabio.png" alt="Prof. Fábio Azevedo Vasconcellos" className="inline-block h-32 w-32 rounded-md mr-2" />
-                  <div>
-                    <strong>Prof. Fábio Azevedo Vasconcellos</strong><br />
-                    Coordenador do projeto e co-tutor do PETIT<br />
-                    Arquiteto e Urbanista, doutor em Teoria e História da Arquitetura<br />
-                    Departamento de Arquitetura e Construção Civil (DACTM)
-                  </div>
-                </li>
+              <ul className="pt-8 text-sm grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 mb-3 justify-items-center mx-auto">
+                <Prof></Prof>
+                <Component nome= "Marcio Gabriel G. Soares" curso="Eng. Computação" funcao="PETiano desde fevereiro de 2024" foto="img/sobre-nos/marcio.png" descricao="Aluno do curso" />
+                <Component nome= "Maria Júlia Loiola Vieira Cotta" curso="Arquitetura e Urbanismo" funcao="PETiano desde fevereiro de 2024" foto="img/sobre-nos/maria.png" descricao="Aluna do curso" />
+                <Component nome= "Larissa Sírio Coelho Penna" curso="Arquitetura e Urbanismo" funcao="PETiano desde fevereiro de 2024" foto="img/sobre-nos/Larissa.png" descricao="Aluna do curso"/>
+                <Component nome= "Felipe" curso="Arquitetura e Urbanismo" funcao="" foto="img/sobre-nos/?.png" descricao="Aluno do curso"/>
+                <Component nome= "Lara" curso="Arquitetura e Urbanismo" funcao="" foto="img/sobre-nos/?.png" descricao="Aluna do curso"/>
               </ul>
 
               <h2 className="text-2xl text-center font-bold pt-8 lg:pt-0">Sobre o PETIT</h2>
