@@ -10,19 +10,19 @@ const Home = () => {
 
   return (
     <div>  
-      <div className="background-image filter brightness-75 bg-fixed bg-cover">
-        <div className="w-full h-72 bg-stone-400 bg-opacity-70">
-          <div className="text-center mt-10">
-            <h1 className="custom-font text-6xl font-bold animate">
+      <div className="background-image filter brightness-75 bg-fixed bg-cover bg-center">
+        <div className="w-full h-72 bg-stone-400 bg-opacity-70 flex flex-col justify-center items-center">
+          <div className="text-center mt-10 md:mt-0">
+            <h1 className="custom-font text-3xl md:text-6xl font-bold animate">
               As casas contam história
             </h1>
-            <p className="text-2xl mt-10 animate animate-delay-500 text-center">
+            <p className="text-xl md:text-2xl mt-4 md:mt-10 animate animate-delay-500 text-center">
               Desde os anos 50, esses lares guardam as memórias e alegrias de diversas famílias.
             </p>
+          </div>
         </div>
       </div>
 
-      </div>
 
       <div className="content container mx-auto mt-custom px-4 lg:px-0">
         <div className="flex justify-center lg:justify-between items-center flex-col lg:flex-row">

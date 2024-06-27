@@ -96,14 +96,30 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100vh ); /* Altura total da tela menos a altura da barra de navegação */
-    background-image: url('/img/Banner-novo.jpg') ;
+    height: 100vh; /* Altura total da tela */
+    background-image: url('/img/Banner-novo.jpg');
     background-position: top;
     z-index: 10; /* Certifique-se de que a imagem de fundo esteja atrás da nav */
     justify-content: center;
     align-items: center;
     display: flex;
-}
+  }
+  
+  @media (max-width: 768px) {
+    .background-image {
+      height: calc(100vh - 56px); /* Ajuste conforme necessário para telas menores */
+      background-size: cover; /* Certifique-se de que a imagem de fundo cobre toda a área */
+    }
+  
+    .background-image h1 {
+      font-size: 1.5rem; /* Ajuste o tamanho da fonte para telas menores */
+    }
+  
+    .background-image p {
+      font-size: 1rem; /* Ajuste o tamanho da fonte para telas menores */
+    }
+  }
+  
 
 /* CSS para a barra de navegação */
 .transparent-nav {

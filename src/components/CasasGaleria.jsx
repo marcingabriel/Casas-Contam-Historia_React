@@ -4,7 +4,6 @@ import {Component} from './Carousel'
 function CasasGaleria() {
   const [filtroBairro, setFiltroBairro] = useState('');
   const [casasData] = useState([
-    { desenho: "img/desenhos/Funcionarios/fachada3.png", casa: "img/casas/Funcionarios/AvenidaCyroCottaPoggiali09.png", endereco: "Bairro Funcionarios. Avenida Cyro Cotta Poggiali, 09", bairro: "Funcionarios" },
     { desenho: "img/desenhos/4.jpg", casa: "img/casas/Funcionarios/Avenida Cyro Cotta Poggiali, 09.png", endereco: "Bairro Funcionarios. Avenida Cyro Cotta Poggiali, 09", bairro: "Funcionarios" },
     { desenho: "img/desenhos/3.jpg", casa: "img/casas/Funcionarios/Avenida Alberto Batista Gallo, n 11.jpg", endereco: "Bairro Funcionarios. Avenida Alberto Batista Gallo, n 11.", bairro: "Funcionarios" },
     { desenho: "img/desenhos/5.jpg", casa: "img/casas/Funcionarios/Avenida Jucelino Kubisckek, 12.png", endereco: "Bairro Funcionarios. Avenida Jucelino Kubisckek, 12.", bairro: "Funcionarios" },
@@ -15,7 +14,6 @@ function CasasGaleria() {
     { desenho: "img/icon-casa.png", casa: "img/casas/Funcionarios/Avenida Almir de Souza Ameno, 28.png", endereco: "Avenida Almir de Souza Ameno, 28.", bairro: "Funcionarios" },
     { desenho: "img/icon-casa.png", casa: "img/casas/Funcionarios/Avenida Almir de Souza Ameno, 56.png", endereco: "Avenida Almir de Souza Ameno, 56.", bairro: "Funcionarios" },
     { desenho: "img/desenhos/5.jpg", casa: "img/casas/Funcionarios/Avenida Jucelino Kubisckek, 14.png", endereco: "Avenida Jucelino Kubisckek, 14.", bairro: "Funcionarios" },
-    { desenho: "img/icon-casa.png", casa: "img/casas/Funcionarios/Endereço Avenida Alberto Batista Gallo, 10.png", endereco: "Avenida Alberto Batista Gallo, 10.", bairro: "Funcionarios" },
     { desenho: "img/icon-casa.png", casa: "img/casas/Funcionarios/Endereço Avenida Jucelino Kubisckek, 30.jpg", endereco: "Avenida Jucelino Kubisckek, 30.", bairro: "Funcionarios" },
     { desenho: "img/icon-casa.png", casa: "img/casas/Funcionarios/Endereço Avenida Jucelino Kubisckek, 52.jpg", endereco: "Endereço Avenida Jucelino Kubisckek, 52.", bairro: "Funcionarios" },
     { desenho: "img/icon-casa.png", casa: "img/casas/Funcionarios/Rua Cinquenta e oito, 7.png", endereco: "Rua Cinquenta e oito, 7.", bairro: "Funcionarios" },

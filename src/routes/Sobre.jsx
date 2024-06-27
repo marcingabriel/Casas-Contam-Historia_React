@@ -9,7 +9,7 @@ const Sobre = () => {
     <div className="font-sans text-gray-900 leading-normal tracking-wider bg-cover">
       <div className="flex items-center justify-center min-h-screen">
         <div className="max-w-6xl flex items-center h-auto  flex-wrap my-32 lg:my-0">
-          <div id="profile" className="w-full rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white mx-6 lg:mx-0">
+          <div id="profile" className="w-full rounded-lg lg:rounded-l-lg lg:rounded-r-none md:shadow-2xl bg-white mx-6 lg:mx-0">
             <div className="p-4 md:p-20 text-center lg:text-left mt-10">
               <h1 className="text-3xl text-center font-bold pt-8 lg:pt-0 animate">Sobre nós</h1>
               <div className="mx-auto lg:mx-0 w-full pt-3 border-b-2 border-green-500 opacity-25"></div>
@@ -25,11 +25,11 @@ const Sobre = () => {
               <h2 className="text-2xl text-center font-bold pt-8 lg:pt-0 mt-8 animate">Integrantes</h2>
               <ul className="pt-8 text-sm grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5 mb-3 justify-items-center mx-auto animate-up">
                 <Prof></Prof>
-                <Component nome= "Marcio Gabriel G. Soares" curso="Eng. Computação" funcao="PETiano desde fevereiro de 2024" foto="img/sobre-nos/marcio.png" descricao="Aluno do curso" />
-                <Component nome= "Maria Júlia Loiola Vieira Cotta" curso="Arquitetura e Urbanismo" funcao="PETiano desde fevereiro de 2024" foto="img/sobre-nos/maria.png" descricao="Aluna do curso" />
-                <Component nome= "Larissa Sírio Coelho Penna" curso="Arquitetura e Urbanismo" funcao="PETiano desde fevereiro de 2024" foto="img/sobre-nos/Larissa.png" descricao="Aluna do curso"/>
-                <Component nome= "Felipe Freitas Moraes" curso="Arquitetura e Urbanismo" funcao="" foto="img/sobre-nos/felipe.png" descricao="Aluno do curso"/>
-                <Component nome= "Lara Gabrielle" curso="Arquitetura e Urbanismo" funcao="" foto="img/sobre-nos/?.png" descricao="Aluna do curso"/>
+                <Component nome= "Marcio Gabriel G. Soares" curso="Eng. Computação" funcao="Bolsista do grupo PET Interdisciplinar de Timóteo DIRGRAD/CEFET-MG" foto="img/sobre-nos/marcio.png" descricao="Aluno do curso" />
+                <Component nome= "Maria Júlia Loiola Vieira Cotta" curso="Arquitetura e Urbanismo" funcao="Bolsista do grupo PET Interdisciplinar de Timóteo DIRGRAD/CEFET-MG" foto="img/sobre-nos/maria.png" descricao="Aluna do curso" />
+                <Component nome= "Larissa Sírio Coelho Penna" curso="Arquitetura e Urbanismo" funcao=" Bolsista do grupo PET Interdisciplinar de Timóteo DIRGRAD/CEFET-MG" foto="img/sobre-nos/Larissa.png" descricao="Aluna do curso"/>
+                <Component nome= "Felipe Freitas Moraes" curso="Arquitetura e Urbanismo - CEFET-MG" funcao="" foto="img/sobre-nos/felipe.png" descricao="Aluno do curso"/>
+                <Component nome= "Lara Gabrielle" curso="Arquitetura e Urbanismo - CEFET-MG" funcao="" foto="img/sobre-nos/?.png" descricao="Aluna do curso"/>
               </ul>
 
               <h2 className="text-2xl text-center font-bold pt-8 lg:pt-0 animate mt-8">Sobre o PETIT</h2>
