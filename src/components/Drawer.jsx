@@ -66,21 +66,22 @@ export function DrawerComponent({ isOpen, handleClose, desenho, casa, endereco }
 </Drawer>
 
 
-      <Modal show={isModalOpen} onClose={closeModal} size="4xl">
-        <div ref={modalRef}>
-          <Modal.Header>Imagem</Modal.Header>
-          <Modal.Body>
-            <img
-              src={modalImage}
-              alt="Imagem ampliada"
-              className="w-full size-max"
-            />
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={closeModal}>Fechar</Button>
-          </Modal.Footer>
-        </div>
-      </Modal>
+<Modal show={isModalOpen} onClose={closeModal} size="4xl">
+  <div ref={modalRef}>
+    <Modal.Header>Imagem</Modal.Header>
+    <Modal.Body style={{ maxHeight: '60vh', overflowY: 'auto' }}>
+      <img
+        src={modalImage}
+        alt="Imagem ampliada"
+        className="w-full h-auto "  
+      />
+    </Modal.Body>
+    <Modal.Footer>
+      <Button onClick={closeModal}>Fechar</Button>
+    </Modal.Footer>
+  </div>
+</Modal>
+
 
     </>
   );
