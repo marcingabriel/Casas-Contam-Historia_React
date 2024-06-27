@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <div>  
-      <div className="background-image filter brightness-75 bg-fixed bg-cover bg-center">
+      <div className="background-image filter brightness-75 sm:bg-fixed bg-cover bg-center">
         <div className="w-full h-72 bg-stone-400 bg-opacity-70 flex flex-col justify-center items-center">
           <div className="text-center mt-10 md:mt-0">
             <h1 className="custom-font text-3xl md:text-6xl font-bold animate">
