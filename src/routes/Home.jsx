@@ -4,7 +4,6 @@ import '../assets/style1.css'
 import useAnimateOnScroll from '../components/Animation';
 import CasasMain from '../components/CasasMain';
 
-
 const Home = () => {
   useAnimateOnScroll();
 
@@ -23,7 +22,6 @@ const Home = () => {
         </div>
       </div>
 
-
       <div className="content container mx-auto mt-custom px-4 lg:px-0">
         <div className="flex justify-center lg:justify-between items-center flex-col lg:flex-row">
           <img src="img/Logo-2.png" className="mx-auto mb-4 animate" alt="Logo" />
@@ -39,17 +37,17 @@ const Home = () => {
             </div>
             <img src="img/MinasGerais_Municip_Timoteo.png" className="mb-4 lg:mb-0 lg:ml-4" alt="Mapa" />
           </div>
-
+          
           <h2 className="text-left roboto text-2xl font-semibold mb-2 text-gray-700 opacity-0 animate-up mt-8">O que é o Projeto “As Casas contam história”.</h2>
           <p className="roboto text-lg text-gray-700 text-left opacity-0 animate-left">
             O mapa "As casas contam história" é um projeto que visa mapear e catalogar as residências ainda existentes na cidade de Timóteo, que foram construídas durante a fase de implantação da siderúrgica ACESITA, hoje APERAM, para atender aos seus funcionários. Ele registra não apenas a localização física dessas casas, mas também informações relevantes sobre sua história, arquitetura e contexto social. Este mapa serve como um inventário artístico e histórico, contribuindo para sensibilizar a população sobre a importância de preservar o patrimônio histórico de Timóteo e proteger suas edificações antigas.
           </p>
-
+          
           <h2 className=" text-left  roboto text-2xl font-semibold mb-2 text-gray-700 opacity-0 animate-up mt-8">Objetivo.</h2>
           <p className="text-lg text-gray-700 text-left opacity-0 animate-left">
             O projeto tem como objetivo ser uma ferramenta, de fácil acesso, de educação patrimonial arquitetônica no município de Timóteo. Focado no patrimônio arquitetônico industrial residencial.
           </p>
-
+          
           <h2 className="text-left  roboto text-2xl font-semibold mb-2 text-gray-700 opacity-0 animate-up mt-8">Acessando as informações.</h2>
           <p className="roboto text-lg text-gray-700 text-left opacity-0 animate-left">
             As casas mapeadas de Timóteo são identificadas com o ícone do mapa. Ao clicar nos ícones, o visitante terá acesso a um dossiê de informações da tipologia arquitetônica implantada no local, através de fotos atuais e um desenho da reconstituição original da fachada.
@@ -100,7 +98,7 @@ const Home = () => {
               </a>
             </div>
           </div>
-          <div className="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div className="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 transition hover:shadow-xl">
             <a href="/depoimentos">
               <img className="rounded-t-lg object-cover object-center md:h-2/5 w-full" src="img/desenhos/7.jpg" alt="Bromélias" />
             </a>

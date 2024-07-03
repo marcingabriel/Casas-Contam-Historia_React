@@ -2,6 +2,7 @@
 import { Button, Drawer, Modal } from "flowbite-react";
 import { useState } from "react";
 import { useEffect, useRef } from 'react';
+import { Tooltip } from "flowbite-react";
 
 
 export function DrawerComponent({ isOpen, handleClose, desenho, casa, endereco }) {
@@ -40,21 +41,25 @@ export function DrawerComponent({ isOpen, handleClose, desenho, casa, endereco }
   <Drawer.Items className="mt-1 md:p-4 flex flex-col space-y-4 overflow-y-auto">
     <div>
       <h1 className="md:text-xl font-semibold mb-2">Desenho da Casa</h1>
-      <img
-        src={desenho}
-        alt="Desenho da casa"
-        className="cursor-pointer hover:opacity-75 transition-opacity"
-        onClick={() => openModal(desenho)}
-      />
+      <Tooltip content="Clique para ampliar" placement="bottom">
+        <img
+          src={desenho}
+          alt="Desenho da casa"
+          className="cursor-pointer hover:opacity-75 transition-opacity"
+          onClick={() => openModal(desenho)}
+        />
+      </Tooltip>
     </div>
     <div>
       <h1 className="md:text-xl font-semibold mb-2">Casa</h1>
-      <img
-        src={casa}
-        alt="Foto da casa"
-        className="cursor-pointer hover:opacity-75 transition-opacity"
-        onClick={() => openModal(casa)}
-      />
+      <Tooltip content="Clique para ampliar" placement="bottom">
+        <img
+          src={casa}
+          alt="Foto da casa"
+          className="cursor-pointer hover:opacity-75 transition-opacity"
+          onClick={() => openModal(casa)}
+        />
+      </Tooltip>
     </div>
     <h2 className="text-lg mt-4">{endereco}</h2>
   </Drawer.Items>

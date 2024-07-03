@@ -22,12 +22,14 @@ export function Component({ desenho, casa, endereco, bairro }) {
             alt="desenho da casa"
             onClick={openDrawer}
             className="cursor-pointer w-full h-full object-cover object-center transition-opacity duration-300 hover:opacity-75 transform transition-transform duration-300 hover:scale-110" 
+            title="Clique para ver mais informações"
           />
           <img
             src={casa}
             alt="foto da casa"
             onClick={openDrawer}
             className="cursor-pointer w-full h-full object-cover object-center  transition-opacity duration-300 hover:opacity-75 transform transition-transform duration-300 hover:scale-110"
+            title="Clique para ver mais informações"
           />
         </Carousel>
       </div>
@@ -40,6 +42,8 @@ export function Component({ desenho, casa, endereco, bairro }) {
         endereco = {endereco}
         bairro = {bairro}
       />
+
+         
     </div>
   );
 }

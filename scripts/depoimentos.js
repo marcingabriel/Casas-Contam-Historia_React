@@ -1,9 +1,18 @@
-function exibirDepoimentos(depoimentos, containerId) {
+function exibirDepoimentos(depoimentos, containerId,containerModal) {
     const container = document.getElementById(containerId);
     container.innerHTML = ''; // Limpa o conteúdo do container
 
     let depoimentosHtml = ''; // Variável para armazenar o HTML dos depoimentos
     let modaisHtml = ''; // Variável para armazenar o HTML dos modais
+
+
+
+    const modalContainer = document.getElementById(containerModal);
+    modalContainer.innerHTML = ''; // Limpa o conteúdo do contêiner de modais
+
+
+
+    
 
     depoimentos.forEach((depoimento, index) => {
         const depoimentoId = `depoimento-${index}`;
@@ -33,12 +42,9 @@ function exibirDepoimentos(depoimentos, containerId) {
 
         `;
 
-
-
-
         // Cria o HTML do modal correspondente
         modaisHtml += `
-        <div id="${modalId}" class="text-left modal hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-90 ">
+        <div id="${modalId}" class="text-left modal hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50 ">
             <div class="modalz bg-white p-8 rounded-lg shadow-lg w-11/12 md:w-3/4 lg:w-2/3 relative " style="max-height: calc(90%); overflow-y: auto; margin-top: 70px; ">
                 <button class="absolute top-2 right-2 text-gray-600 hover:text-blue-800 close-modal text-2xl">
                     &times;
@@ -50,11 +56,15 @@ function exibirDepoimentos(depoimentos, containerId) {
         </div>
     `;
     
-    
     });
 
-    // Adiciona o HTML dos depoimentos e dos modais ao container
-    container.innerHTML = depoimentosHtml + modaisHtml;
+    
+
+    // Adiciona o HTML dos depoimentos ao container original
+    container.innerHTML = depoimentosHtml;
+
+    // Adiciona o HTML dos modais ao novo contêiner
+    modalContainer.innerHTML = modaisHtml;
 
     // Adiciona eventos de clique para abrir e fechar os modais
     depoimentos.forEach((depoimento, index) => {
