@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Carousel } from 'flowbite-react';
 import { DrawerComponent } from './Drawer';
 
-export function Component({ desenho, casa, endereco, bairro }) {
+export function Component({ desenho, casa, endereco, bairro, mapa }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const openDrawer = () => {
@@ -41,6 +41,7 @@ export function Component({ desenho, casa, endereco, bairro }) {
         casa={casa}
         endereco = {endereco}
         bairro = {bairro}
+        mapa = {mapa}
       />
 
          

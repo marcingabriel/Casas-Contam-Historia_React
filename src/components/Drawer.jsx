@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react';
 import { Tooltip } from "flowbite-react";
 
 
-export function DrawerComponent({ isOpen, handleClose, desenho, casa, endereco }) {
+export function DrawerComponent({ isOpen, handleClose, desenho, casa, endereco, mapa }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
   const modalRef = useRef();
@@ -64,8 +64,10 @@ export function DrawerComponent({ isOpen, handleClose, desenho, casa, endereco }
     <h2 className="text-lg mt-4">{endereco}</h2>
   </Drawer.Items>
   <div className="p-4 border-t border-gray-200">
-    <Button onClick={handleClose} className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors">
-      Mapa
+    <Button 
+      className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+      onClick={() => window.open(mapa, '_blank')}>
+        Mapa
     </Button>
   </div>
 </Drawer>
