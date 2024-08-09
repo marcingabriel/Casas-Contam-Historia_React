@@ -15,7 +15,7 @@ const Sobre = () => {
               <div className="mx-auto lg:mx-0 w-full pt-3 border-b-2 border-green-500 opacity-25"></div>
 
               <h2 className="text-2xl text-center font-bold pt-8 lg:pt-0 mt-5 animate">Objetivo</h2>
-              <p className="pt-8 text-sm text-left animate-left">
+              <p className="pt-8 text-md text-justify animate-left">
                 O projeto "As Casas Contam Histórias" visa se tornar uma ferramenta acessível de educação patrimonial arquitetônica no município de Timóteo,
                 com foco no patrimônio arquitetônico industrial residencial. Busca-se documentar, catalogar e disponibilizar informações sobre as fachadas originais das casas
                 construídas pela siderúrgica ACESITA (atualmente APERAM South America), facilitando o acesso do público às histórias e características dessas construções.
@@ -29,11 +29,11 @@ const Sobre = () => {
                 <Component nome= "Maria Júlia Loiola Vieira Cotta" curso="Arquitetura e Urbanismo" funcao="Bolsista do grupo PET Interdisciplinar de Timóteo DIRGRAD/CEFET-MG" foto="img/sobre-nos/maria.png" descricao="Aluna do curso" />
                 <Component nome= "Larissa Sírio Coelho Penna" curso="Arquitetura e Urbanismo" funcao=" Bolsista do grupo PET Interdisciplinar de Timóteo DIRGRAD/CEFET-MG" foto="img/sobre-nos/Larissa.png" descricao="Aluna do curso"/>
                 <Component nome= "Felipe Freitas Moraes" curso="Arquitetura e Urbanismo - CEFET-MG" funcao="" foto="img/sobre-nos/felipe.png" descricao="Aluno do curso"/>
-                <Component nome= "Lara Gabrielle" curso="Arquitetura e Urbanismo - CEFET-MG" funcao="" foto="img/sobre-nos/?.png" descricao="Aluna do curso"/>
+                <Component nome= "Lara Gabrielle" curso="Arquitetura e Urbanismo - CEFET-MG" funcao="" foto="img/sobre-nos/lara.jpeg" descricao="Aluna do curso"/>
               </ul>
 
               <h2 className="text-2xl text-center font-bold pt-8 lg:pt-0 animate mt-8">Sobre o PETIT</h2>
-              <p className="pt-8 text-sm text-left animate-left">
+              <p className="pt-8 text-md text-justify animate-left">
                 O Programa de Educação Tutorial (PET) é composto por grupos de aprendizagem, orientados, cada um, por um professor tutor, que buscam propiciar aos alunos condições para a realização de atividades extracurriculares que complementem a sua formação acadêmica, procurando atender mais plenamente às necessidades do próprio curso de graduação e/ou ampliar e aprofundar os objetivos e conteúdos programáticos que integram sua estrutura curricular. Desta forma, espera-se promover a formação ampla e de qualidade acadêmica dos alunos de graduação envolvidos direta ou indiretamente com o programa, estimulando a fixação de valores que reforcem a cidadania e a consciência social de todos os participantes para a melhoria dos cursos de graduação.
 
                 O PET é um programa de longo prazo que visa realizar, dentro da universidade brasileira, o modelo de indissociabilidade do ensino, pesquisa e da extensão. Assim, além de um incentivo à melhoria da graduação, o PET pretende estimular a criação de um modelo pedagógico para a universidade, de acordo com os princípios estabelecidos na Constituição Brasileira e na Lei de Diretrizes e Bases da Educação (LDB).
