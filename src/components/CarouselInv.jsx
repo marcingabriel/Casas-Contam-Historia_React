@@ -8,7 +8,7 @@ export function Component() {
     <div className="h-60 sm:h-64 xl:h-80 2xl:h-96">
       <Carousel>
       <img
-          src="public/img/Banner-Galeria.jpg"
+          src="img/Banner-Galeria.jpg"
           alt="Slide 1"
           className="h-full w-full "
         />
