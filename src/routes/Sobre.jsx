@@ -8,28 +8,32 @@ const Sobre = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [successMessage, setSuccessMessage] = useState('');  // Novo estado para a mensagem de sucesso
 
 
+  function sendEmail(event) {
+    event.preventDefault();  // Previna o comportamento padrão do formulário
 
-  function sendEmail(){
-    
-    const templateParams={
-      from_name: name,
-      message: message,
-      email: email
-    }
+    const templateParams = {
+        from_name: name,
+        message: message,
+        email: email
+    };
 
-    emailjs.send("service_3j6we7u","template_67m4dey", templateParams,"Hjw4e3W9aJv7H3_UB")
-    .then((response) => {
-      console.log("Sucesso")
-      setName('')
-      setEmail('')
-      setMessage('')
-      alert("Sucesso")
-    })
+    emailjs.send("service_3j6we7u", "template_67m4dey", templateParams, "Hjw4e3W9aJv7H3_UB")
+        .then((response) => {
+            console.log("Sucesso");
+            setName('');
+            setEmail('');
+            setMessage('');
+            setSuccessMessage("Mensagem enviada com sucesso! Obrigado pelo contato!! :) ");  // Define a mensagem de sucesso
+        })
+        .catch((error) => {
+            console.error("Erro ao enviar mensagem: ", error);
+            setSuccessMessage("Erro ao enviar a mensagem, por favor tente novamente.");  // Define uma mensagem de erro se necessário
+        });
+}
 
-
-  }
 
 
   useAnimateOnScroll();
@@ -86,6 +90,10 @@ const Sobre = () => {
                     </div>
                     <button type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Enviar</button>
                   </form>
+                  {successMessage && (  // Exibe a mensagem de sucesso se ela existir
+                  <div className="mt-4 p-3 bg-green-100 text-green-700 rounded-lg">
+                      {successMessage}
+                  </div>   )}
                 </div>
               </section>
             </div>
