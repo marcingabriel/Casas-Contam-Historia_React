@@ -78,7 +78,7 @@ const Home = () => {
 
       <div className="container mx-auto relative z-10 items-center-center animate-up">
         <div className="flex flex-col md:flex-row justify-center m-2 mt-8 space-y-8 md:space-y-0 md:space-x-8">
-          <div className="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 transition hover:shadow-xl">
+          <div className="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 md:m-2 m-5 lg:m-0 transition-transform transform hover:scale-105 hover:shadow-xl">
             <a href="#">
               <img className="rounded-t-lg object-cover object-center md:h-2/5 w-full" src="img/desenhos/2.jpg" alt="Funcionários" />
             </a>
@@ -98,7 +98,7 @@ const Home = () => {
               </a>
             </div>
           </div>
-          <div className="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 transition hover:shadow-xl">
+          <div className="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 md:m-2 m-5 lg:m-0 transition-transform transform hover:scale-105 hover:shadow-xl">
             <a href="/depoimentos">
               <img className="rounded-t-lg object-cover object-center md:h-2/5 w-full" src="img/desenhos/7.jpg" alt="Bromélias" />
             </a>
