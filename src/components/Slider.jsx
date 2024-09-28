@@ -11,7 +11,7 @@ import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 
 function Slider() {
   return (
-    <div className="container">
+    <div className="containerSlider">
       <h1 className="heading">Flower Gallery</h1>
       <Swiper
         effect={'coverflow'}
