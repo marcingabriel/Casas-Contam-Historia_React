@@ -69,57 +69,67 @@ body {
 
 .slider-controler {
   position: relative;
-  bottom: 2rem;
   display: flex;
+  bottom: 2rem;
   align-items: center;
   justify-content: center;
+  margin-top: 2rem;
 }
 
-.slider-controler .swiper-button-next {
-  left: 58% !important;
-  transform: translateX(-58%) !important;
+.swiper-pagination {
+  position: flex;
+  bottom: -2rem; /* Coloca a paginação um pouco abaixo */
+  width: auto;
 }
+
+.swiper-button-prev, .swiper-button-next {
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-20%);
+}
+
+.swiper-button-next {
+  right: 20rem; /* Aproxima a seta direita da paginação */
+}
+
+
+.swiper-button-prev {
+  left: 20rem; /* Aproxima a seta esquerda da paginação */
+}
+
+
 
 @media (max-width: 990px) {
   .slider-controler .swiper-button-next {
-    left: 70% !important;
-    transform: translateX(-70%) !important;
+    right: 3rem; /* Ajusta para telas menores */
+  }
+  
+  .slider-controler .swiper-button-prev {
+    left: 3rem; /* Ajusta para telas menores */
   }
 }
 
 @media (max-width: 450px) {
+  .swiper-pagination {
+    bottom: -1rem;
+  }
   .slider-controler .swiper-button-next {
-    left: 80% !important;
-    transform: translateX(-80%) !important;
+    right: 2rem; /* Ajusta ainda mais a posição das setas em telas pequenas */
   }
-}
-
-@media (max-width: 990px) {
+  
   .slider-controler .swiper-button-prev {
-    left: 30% !important;
-    transform: translateX(-30%) !important;
-  }
-}
-
-@media (max-width: 450px) {
-  .slider-controler .swiper-button-prev {
-    left: 20% !important;
-    transform: translateX(-20%) !important;
+    left: 2rem;
   }
 }
 
 .slider-controler .slider-arrow {
   background: var(--white);
-  width: 3.5rem;
-  height: 3.5rem;
   border-radius: 50%;
-  left: 42%;
-  transform: translateX(-42%);
   filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
 }
 
 .slider-controler .slider-arrow ion-icon {
-  font-size: 2rem;
+  font-size: 4rem;
   color: #222224;
 }
 
@@ -127,17 +137,10 @@ body {
   content: '';
 }
 
-.swiper-pagination {
-  position: relative;
-  width: 15rem !important;
-  bottom: 1rem;
-}
+
 
 .swiper-pagination .swiper-pagination-bullet {
   filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
-
 }
 
-.swiper-pagination .swiper-pagination-bullet-active {
-  color: #222224;
-}
+
