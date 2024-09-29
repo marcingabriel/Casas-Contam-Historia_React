@@ -12,7 +12,7 @@ import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 function Slider() {
   return (
     <div className="containerSlider">
-      <h1 className="heading">Flower Gallery</h1>
+      <h1 className="text-center custom-font tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-3xl">Fachada 1</h1>
       <Swiper
         effect={'coverflow'}
         grabCursor={true}
@@ -35,25 +35,35 @@ function Slider() {
         className="swiper_container"
       >
         <SwiperSlide>
-          <img src="img/desenhos/1.jpg" alt="slide_image" className="cursor-pointer transition-opacity duration-300 hover:opacity-90 transform hover:scale-110"  />
+        <div className="relative slide-content">
+          <img src="img/desenhos/1.jpg" alt="slide_image" className="block w-full cursor-pointer transition-opacity duration-300 hover:opacity-90 transform hover:scale-110" />
+          <p className="absolute bottom-2 left-2 text-white bg-black bg-opacity-40 px-2 py-1 text-sm">Beautiful Flower 2</p>
+        </div>
+
         </SwiperSlide>
         <SwiperSlide>
-          <img src="img/desenhos/2.jpg" alt="slide_image" className="cursor-pointer transition-opacity duration-300 hover:opacity-90 transform hover:scale-110" />
+        <div className="relative slide-content">
+            <img src="img/desenhos/2.jpg" alt="slide_image" className="cursor-pointer transition-opacity duration-300 hover:opacity-90 transform hover:scale-110" />
+            <p className="absolute bottom-2 left-2 text-white bg-black bg-opacity-40 px-2 py-1 text-sm">Beautiful Flower 2</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src="img/desenhos/4.jpg" alt="slide_image" className="cursor-pointer transition-opacity duration-300 hover:opacity-90 transform hover:scale-110"/>
+        <div className="relative slide-content">
+            <img src="img/desenhos/4.jpg" alt="slide_image" className="cursor-pointer transition-opacity duration-300 hover:opacity-90 transform hover:scale-110" />
+            <p className="absolute bottom-2 left-2 text-white bg-black bg-opacity-40 px-2 py-1 text-sm">Beautiful Flower 2</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src="img/desenhos/4.jpg" alt="slide_image" className="cursor-pointer transition-opacity duration-300 hover:opacity-90 transform hover:scale-110" />
+        <div className="relative slide-content">
+            <img src="img/desenhos/4.jpg" alt="slide_image" className="cursor-pointer transition-opacity duration-300 hover:opacity-90 transform hover:scale-110" />
+            <p className="absolute bottom-2 left-2 text-white bg-black bg-opacity-40 px-2 py-1 text-sm">Beautiful Flower 2</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src="img/desenhos/6.jpg" alt="slide_image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="img/desenhos/4.jpg" alt="slide_image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="img/desenhos/4.jpg" alt="slide_image" />
+        <div className="relative slide-content">
+            <img src="img/desenhos/6.jpg" alt="slide_image" />
+            <p className="absolute bottom-2 left-2 text-white bg-black bg-opacity-40 px-2 py-1 text-sm">Beautiful Flower 2</p>
+          </div>
         </SwiperSlide>
 
         <div className="slider-controler">
@@ -69,5 +79,6 @@ function Slider() {
     </div>
   );
 }
+
 
 export default Slider;
