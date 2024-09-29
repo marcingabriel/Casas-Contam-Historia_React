@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import {Component} from '../components/CarouselInv';
 import CasasGaleria from '../components/CasasGaleria';
-import Slider from '../components/Slider'
+
 
 const Inventario = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -56,7 +56,7 @@ const Inventario = () => {
               {/* Aqui você pode importar e usar o componente Galeria, passando os dados filtrados */}
               {/* <Galeria searchTerm={searchTerm} /> */}
             </div>
-            <Slider></Slider>
+
             
           </div>
         </div>
