@@ -26,7 +26,7 @@ export function Slider({ casas, fachada }) {
   return (
     <div>
       <div className="containerSlider">
-        <h1 className="text-center custom-font tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-3xl">{fachada}</h1>
+        <h2 className="text-center custom-font tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-2xl">{fachada}</h2>
         <Swiper
           effect={'coverflow'}
           grabCursor={true}
