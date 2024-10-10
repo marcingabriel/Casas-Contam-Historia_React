@@ -16,14 +16,15 @@ function exibirDepoimentos(depoimentos, containerId,containerModal) {
 
     depoimentos.forEach((depoimento, index) => {
         const depoimentoId = `depoimento-${index}`;
+        const depoimentoIdImg = `depoimentoImg-${index}`;
         const modalId = `modal-${index}`;
         const modalTextId = `modal-text-${index}`;
 
         // Cria o HTML do depoimento
         depoimentosHtml += `
-        <div class="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700  md:m-2 m-5 lg:m-0">
-            <a href="#">
-                <img class="rounded-t-lg  object-cover object-center md:h-2/5 w-full" src="${depoimento.desenho}" alt="desenho" />
+        <div class="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 md:m-2 m-5 lg:m-0 transition-transform transform hover:scale-105 hover:shadow-xl">
+            <a href="#" id="${depoimentoIdImg}">
+                <img  class="rounded-t-lg  object-cover object-center md:h-2/5 w-full" src="${depoimento.desenho}" alt="desenho" />
             </a>
             <div class="p-5">
                 <h3 class="text-center font-playfair-display font-bold text-2xl mb-2">
@@ -31,7 +32,7 @@ function exibirDepoimentos(depoimentos, containerId,containerModal) {
                 </h3>
                 <h4 class="text-center font-medium text-gray-500 text-sm mb-4">${depoimento.endereço}</h4> <!-- Subtítulo adicionado -->
                 <p class="text-center text-gray-600 mb-4 text-sm md:text-base">${depoimento.texto}</p>
-                <a href="#" id="${depoimentoId}" class="  inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <a href="#" id="${depoimentoId}" class="  inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-800 rounded-lg hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Ler mais
                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -69,11 +70,17 @@ function exibirDepoimentos(depoimentos, containerId,containerModal) {
     // Adiciona eventos de clique para abrir e fechar os modais
     depoimentos.forEach((depoimento, index) => {
         const depoimentoId = `depoimento-${index}`;
+        const depoimentoIdImg = `depoimentoImg-${index}`;
         const modalId = `modal-${index}`;
     
         const modal = document.getElementById(modalId);
         const modalContent = modal.querySelector('.modalz');
     
+        document.getElementById(depoimentoIdImg).addEventListener('click', function(event) {
+            event.preventDefault();
+            modal.classList.remove('hidden');
+        });
+
         document.getElementById(depoimentoId).addEventListener('click', function(event) {
             event.preventDefault();
             modal.classList.remove('hidden');

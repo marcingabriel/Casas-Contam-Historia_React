@@ -1,0 +1,146 @@
+
+
+html {
+  font-size: 88.0%;
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 1440px) {
+  html {
+    zoom: 1.1;
+  }
+}
+
+@media (min-width: 2560px) {
+  html {
+    zoom: 1.3;
+  }
+}
+
+
+body {
+  font-size: 1.1rem;
+}
+
+.containerSlider {
+  max-width: 124rem;
+  padding: 4rem 1rem;
+  margin: 0 auto;
+}
+
+
+.swiper_container {
+  height: 32rem;
+  padding: 2rem;
+  position: relative;
+}
+
+.swiper-slide {
+  width: 37rem;
+  height: 42rem;
+  position: relative;
+}
+
+@media (max-width: 500px) {
+  .swiper_container {
+    height: 47rem;
+  }
+  .swiper-slide {
+    width: 28rem !important;
+    height: 36rem !important;
+  }
+  .swiper-slide img {
+    width: 28rem !important;
+    height: 36rem !important;
+  }
+}
+
+.swiper-slide img {
+  width: 35rem;
+  height: 20rem;
+  border-radius: 2rem;
+  object-fit: cover;
+}
+
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  display: none;
+}
+
+.slider-controler {
+  position: relative;
+  display: flex;
+  bottom: 2rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.swiper-pagination {
+  position: flex;
+  bottom: -2rem; /* Coloca a paginação um pouco abaixo */
+  width: auto;
+}
+
+.swiper-button-prev, .swiper-button-next {
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-20%);
+}
+
+.swiper-button-next {
+  right: 20rem; /* Aproxima a seta direita da paginação */
+}
+
+
+.swiper-button-prev {
+  left: 20rem; /* Aproxima a seta esquerda da paginação */
+}
+
+
+
+@media (max-width: 990px) {
+  .slider-controler .swiper-button-next {
+    right: 3rem; /* Ajusta para telas menores */
+  }
+  
+  .slider-controler .swiper-button-prev {
+    left: 3rem; /* Ajusta para telas menores */
+  }
+}
+
+@media (max-width: 450px) {
+  .swiper-pagination {
+    bottom: -1rem;
+  }
+  .slider-controler .swiper-button-next {
+    right: 2rem; /* Ajusta ainda mais a posição das setas em telas pequenas */
+  }
+  
+  .slider-controler .swiper-button-prev {
+    left: 2rem;
+  }
+}
+
+.slider-controler .slider-arrow {
+  background: var(--white);
+  border-radius: 50%;
+  filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+}
+
+.slider-controler .slider-arrow ion-icon {
+  font-size: 4rem;
+  color: #222224;
+}
+
+.slider-controler .slider-arrow::after {
+  content: '';
+}
+
+
+
+.swiper-pagination .swiper-pagination-bullet {
+  filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+}
+
+
