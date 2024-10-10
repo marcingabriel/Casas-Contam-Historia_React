@@ -36,41 +36,41 @@ export function DrawerComponent({ isOpen, handleClose, desenho, casa, endereco, 
 
   return (
     <>
-      <Drawer open={isOpen} onClose={handleClose} style={{ width: "50vw", maxWidth: "450px" }}>
-  <Drawer.Header className="p-4 border-b border-gray-200" title="Informações" />
-  <Drawer.Items className="mt-1 md:p-4 flex flex-col space-y-4 overflow-y-auto">
-    <div>
-      <h1 className="md:text-xl font-semibold mb-2">Desenho da Casa</h1>
-      <Tooltip content="Clique para ampliar" placement="bottom">
-        <img
-          src={desenho}
-          alt="Desenho da casa"
-          className="cursor-pointer hover:opacity-75 transition-opacity"
-          onClick={() => openModal(desenho)}
-        />
-      </Tooltip>
-    </div>
-    <div>
-      <h1 className="md:text-xl font-semibold mb-2">Casa</h1>
-      <Tooltip content="Clique para ampliar" placement="bottom">
-        <img
-          src={casa}
-          alt="Foto da casa"
-          className="cursor-pointer hover:opacity-75 transition-opacity"
-          onClick={() => openModal(casa)}
-        />
-      </Tooltip>
-    </div>
+  <Drawer open={isOpen} onClose={handleClose} style={{ width: "50vw", maxWidth: "450px" }}>
+    <Drawer.Header className="p-4 border-b border-gray-200" title="Informações" />
+    <Drawer.Items className="mt-1 md:p-4 flex flex-col space-y-4 overflow-y-auto">
+      <div>
+        <h1 className="md:text-xl font-semibold mb-2">Desenho da Casa</h1>
+        <Tooltip content="Clique para ampliar" placement="bottom">
+          <img
+            src={desenho}
+            alt="Desenho da casa"
+            className="cursor-pointer hover:opacity-75 transition-opacity"
+            onClick={() => openModal(desenho)}
+          />
+        </Tooltip>
+      </div>
+      <div className ="max-h-96">
+        <h1 className="md:text-xl font-semibold mb-2">Casa</h1>
+        <Tooltip content="Clique para ampliar" placement="bottom">
+          <img
+            src={casa}
+            alt="Foto da casa"
+            className="cursor-pointer hover:opacity-75 transition-opacity  w-full"
+            onClick={() => openModal(casa)}
+          />
+        </Tooltip>
+      </div>
+    </Drawer.Items>
     <h2 className="text-lg mt-4">{endereco}</h2>
-  </Drawer.Items>
-  <div className="p-4 border-t border-gray-200">
-    <Button 
-      className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
-      onClick={() => window.open(mapa, '_blank')}>
-        Mapa
-    </Button>
-  </div>
-</Drawer>
+    <div className="p-4 border-t border-gray-200">
+      <Button 
+        className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+        onClick={() => window.open(mapa, '_blank')}>
+          Mapa
+      </Button>
+    </div>
+  </Drawer>
 
 
 <Modal show={isModalOpen} onClose={closeModal} size="4xl">
