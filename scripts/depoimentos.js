@@ -51,6 +51,9 @@ function exibirDepoimentos(depoimentos, containerId,containerModal) {
                     &times;
                 </button>
                 <h3 class="text-center font-playfair-display font-bold text-2xl mb-4">Depoimento Completo</h3>
+                <h3 class= "font-bold "> Depoimento em audio </h3>
+                <audio src="midia/testemusic.mp3" controls></audio>
+
                 <p id="${modalTextId}" class="text-left text-gray-600 mb-4">${depoimento.entrevista}</p>
                 <button class="close-button block mx-auto mt-4 bg-blue-500 text-white p-2 rounded">Fechar</button>
             </div>
