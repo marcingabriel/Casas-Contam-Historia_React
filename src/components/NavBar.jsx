@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Dropdown } from "flowbite-react";
+import { FaMusic } from 'react-icons/fa'; // Pacote react-icons para o ícone de música
+import { FaHeadphones } from 'react-icons/fa'; // Ícone de fones de ouvido
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -7,6 +9,19 @@ const NavBar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const [isHovered, setIsHovered] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false); // Estado para monitorar se a música está tocando
+  const audioRef = useRef(null); // Referência para o elemento de áudio
+
+  const handleAudioPlay = () => {
+    setIsPlaying(true);
+  };
+
+  const handleAudioPause = () => {
+    setIsPlaying(false);
+  };
+
 
   return (
     <nav className="transparent-nav sticky top-0 z-40 backdrop-filter backdrop-blur-xl border-b border-gray-500">
@@ -18,6 +33,26 @@ const NavBar = () => {
           <div className="flex items-center space-x-4">
             <a href="#"><img src="img/instagram.png" alt="Logo Rede Social 1" className="h-7 transform transition-transform duration-300 hover:scale-110" /></a>
             <a href="#"><img src="img/youtube.png" alt="Logo Rede Social 2" className="h-7 transform transition-transform duration-300 hover:scale-110" /></a>
+            {/* Ícone de música, visível quando o player não estiver visível */}
+            <FaHeadphones
+              className={`text-2xl text-black cursor-pointer transform hover:scale-110 transition duration-300 ease-in-out ${!isHovered && 'block'} md:text-3xl`} // Responsividade
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}            
+            />
+
+            {/* Player de áudio, oculto visualmente quando não está em hover, mas ainda ativo */}
+            <audio
+              ref={audioRef}
+              controls
+              autoPlay={true}
+              className={`bg-gray-800 text-white rounded-full p-2 mt-2 ${isHovered ? 'visible' : 'invisible'} w-64 sm:w-72 md:w-80`} // Largura responsiva
+              onPlay={handleAudioPlay}
+              onPause={handleAudioPause}
+              onEnded={() => setIsPlaying(false)}
+            >
+              <source src="midia/testemusic.mp3" type="audio/mp3" />
+              Your browser does not support the audio element.
+            </audio>
             {/* Adicione mais logos de redes sociais conforme necessário */}
           </div>
           <button
