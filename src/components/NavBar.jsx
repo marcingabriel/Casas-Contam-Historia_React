@@ -1,7 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Dropdown } from "flowbite-react";
 import { FaMusic } from 'react-icons/fa'; // Pacote react-icons para o ícone de música
 import { FaHeadphones } from 'react-icons/fa'; // Ícone de fones de ouvido
+
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,6 +14,10 @@ const NavBar = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false); // Estado para monitorar se a música está tocando
   const audioRef = useRef(null); // Referência para o elemento de áudio
+  const [showTooltip, setShowTooltip] = useState(false); // Estado para controlar a visibilidade do tooltip
+
+
+
 
   const handleAudioPlay = () => {
     setIsPlaying(true);
@@ -21,6 +26,8 @@ const NavBar = () => {
   const handleAudioPause = () => {
     setIsPlaying(false);
   };
+
+
 
 
   return (
