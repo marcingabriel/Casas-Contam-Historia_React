@@ -10,46 +10,10 @@ import { FaHeadphones } from 'react-icons/fa'; // Ícone de fones de ouvido
 
 const Home = () => {
   useAnimateOnScroll();
-  const [isHovered, setIsHovered] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false); // Estado para monitorar se a música está tocando
-  const audioRef = useRef(null); // Referência para o elemento de áudio
-
-  const handleAudioPlay = () => {
-    setIsPlaying(true);
-  };
-
-  const handleAudioPause = () => {
-    setIsPlaying(false);
-  };
 
   return (
     <div>  
-         {/* Contêiner flexível para alinhar ícone e player */}
-         <div
-        className="fixed top-16 right-5 z-50 flex flex-col items-center"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        {/* Ícone de música, visível quando o player não estiver visível */}
-        <FaHeadphones
-          className={`text-2xl text-black cursor-pointer transform hover:scale-110 transition duration-300 ease-in-out ${!isHovered && 'block'} md:text-3xl`} // Responsividade
-        />
-
-        {/* Player de áudio, oculto visualmente quando não está em hover, mas ainda ativo */}
-        <audio
-          ref={audioRef}
-          controls
-          autoPlay={true}
-          className={`bg-gray-800 text-white rounded-full p-2 mt-2 ${isHovered ? 'visible' : 'invisible'} w-64 sm:w-72 md:w-80`} // Largura responsiva
-          onPlay={handleAudioPlay}
-          onPause={handleAudioPause}
-          onEnded={() => setIsPlaying(false)}
-        >
-          <source src="midia/testemusic.mp3" type="audio/mp3" />
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-
+        
       <div className="background-image filter brightness-75 sm:bg-fixed bg-cover bg-center">
         <div className="w-full h-72 bg-stone-400 bg-opacity-70 flex flex-col justify-center items-center">
           <div className="text-center mt-10 md:mt-0">

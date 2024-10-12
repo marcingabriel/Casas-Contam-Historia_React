@@ -33,19 +33,18 @@ const NavBar = () => {
           <div className="flex items-center space-x-4">
             <a href="#"><img src="img/instagram.png" alt="Logo Rede Social 1" className="h-7 transform transition-transform duration-300 hover:scale-110" /></a>
             <a href="#"><img src="img/youtube.png" alt="Logo Rede Social 2" className="h-7 transform transition-transform duration-300 hover:scale-110" /></a>
-            {/* Ícone de música, visível quando o player não estiver visível */}
-            <FaHeadphones
-              className={`text-2xl text-black cursor-pointer transform hover:scale-110 transition duration-300 ease-in-out ${!isHovered && 'block'} md:text-3xl`} // Responsividade
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}            
+            <div className="flex items-center space-x-1"  onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} >
+              {/* Ícone de música, visível quando o player não estiver visível */}
+              <FaHeadphones
+              className={`text-2xl cursor-pointer transform transition duration-300 ${isPlaying ? 'animate-bounce text-blue-700' : 'text-black'} hover:scale-110`} 
             />
 
-            {/* Player de áudio, oculto visualmente quando não está em hover, mas ainda ativo */}
-            <audio
+              {/* Player de áudio, oculto visualmente quando não está em hover, mas ainda ativo */}
+             <audio
               ref={audioRef}
               controls
               autoPlay={true}
-              className={`bg-gray-800 text-white rounded-full p-2 mt-2 ${isHovered ? 'visible' : 'invisible'} w-64 sm:w-72 md:w-80`} // Largura responsiva
+              className={`fixed top-14 transform -translate-x-1/2 bg-gray-800 text-white rounded-full p-1 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0 pointer-events-none'} w-64 sm:w-72 md:w-80`} 
               onPlay={handleAudioPlay}
               onPause={handleAudioPause}
               onEnded={() => setIsPlaying(false)}
@@ -53,6 +52,7 @@ const NavBar = () => {
               <source src="midia/testemusic.mp3" type="audio/mp3" />
               Your browser does not support the audio element.
             </audio>
+            </div>          
             {/* Adicione mais logos de redes sociais conforme necessário */}
           </div>
           <button
