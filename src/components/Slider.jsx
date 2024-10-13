@@ -26,7 +26,6 @@ export function Slider({ casas, fachada }) {
   return (
     <div>
       <div className="containerSlider">
-        <h2 className="text-center custom-font tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-2xl">{fachada}</h2>
         <Swiper
           effect={'coverflow'}
           grabCursor={true}
@@ -51,7 +50,7 @@ export function Slider({ casas, fachada }) {
           {casas.map(casa => (
             <SwiperSlide key={casa.endereco}>
               <div className="relative slide-content">
-                <img src={casa.desenho} className="block w-full cursor-pointer transition-opacity duration-300 hover:opacity-90 transform hover:scale-110" onClick={() => openDrawer(casa)} title="Clique para ver mais informações"/>
+                <img src={casa.casa} className="block w-full cursor-pointer transition-opacity duration-300 hover:opacity-90 transform hover:scale-110" onClick={() => openDrawer(casa)} title="Clique para ver mais informações"/>
                 <p className="absolute bottom-2 left-2 text-white bg-black bg-opacity-40 px-2 py-1 text-sm">{casa.endereco}</p>
               </div>
             </SwiperSlide>

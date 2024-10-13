@@ -200,35 +200,20 @@ const bairrosFiltrados = Object.keys(casasPorBairro).filter(bairro =>
 
 return (
   <div>
-    {/* Renderizar casas agrupadas por fachada no bairro filtrado */}
-    {bairrosFiltrados.map(bairro => {
-      // Para cada bairro, agrupar as casas por fachada
-      const casasPorFachada = {};
-      casasPorBairro[bairro].forEach(casa => {
-        if (!casasPorFachada[casa.fachada]) {
-          casasPorFachada[casa.fachada] = [];
-        }
-        casasPorFachada[casa.fachada].push(casa);
-      });
-
-      return (
-        <div key={bairro} className="mb-4">
-          <h2 className="text-xl font-bold mb-2">{bairro}</h2>
-          <div className="">
-            {/* Para cada fachada única dentro do bairro, renderizar um slider */}
-            {Object.keys(casasPorFachada).map(fachada => (
-              <Slider
-                key={fachada}
-                fachada={fachada}
-                casas={casasPorFachada[fachada]} // Passa todas as casas dessa fachada
-              />
-            ))}
-          </div>
+    {/* Renderizar casas agrupadas por bairro filtrado */}
+    {bairrosFiltrados.map(bairro => (
+      <div key={bairro} className="mb-4">
+        <h2 className="text-xl font-bold mb-2">{bairro}</h2>
+        <div className="slider-container">
+          {/* Chamar o componente Slider passando todas as casas do bairro */}
+          <Slider casas={casasPorBairro[bairro]} fachada={`Casas no bairro ${bairro}`} />
         </div>
-      );
-    })}
+      </div>
+    ))}
   </div>
 );
+
+
 
 }
 
