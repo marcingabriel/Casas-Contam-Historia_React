@@ -80,24 +80,31 @@ const NavBar = () => {
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <a data-popover-target="popover-1" href="/" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-cinza md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 transform transition-transform duration-300 hover:scale-110" aria-current="page">Mapa</a>
-              <div data-popover id="popover-1" role="tooltip" class="absolute z-10 invisible inline-block w-56 text-sm text-gray-600 transition-opacity duration-300 ease-in-out bg-white border rounded-lg shadow-lg opacity-0 dark:text-gray-400 dark:border-gray-700 dark:bg-gray-800">
-                  <div class="px-3 py-2 bg-gray-200 border-b border-gray-300 rounded-t-lg ">
-                      <h3 class="font-bold text-lg text-gray-900 dark:text-white">Mapa</h3>
-                  </div>
-                  <div class="px-2 py-1">
-                      <p class="leading-relaxed text-sm text-center ">Pagina principal onde se encontra o mapa e algumas informações</p>
-                  </div>
-                  <div class="absolute w-3 h-3 bg-white border border-gray-300 transform rotate-45 -top-1 dark:bg-gray-900 dark:border-gray-900" data-popper-arrow></div>
+              <div id="popover-1" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-600 max-w-60 transition-opacity duration-300 ease-in-out">
+                <p class="leading-relaxed text-sm text-center ">Pagina principal onde se encontra o mapa interativo e algumas informações.</p>
+                <div class="tooltip-arrow" data-popper-arrow></div>
               </div>
             </li>
             <li>
               <a data-popover-target="popover-2" href="/inventario" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-cinza md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 transform transition-transform duration-300 hover:scale-110">Inventário</a>
+              <div id="popover-2" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-600 max-w-60 transition-opacity duration-300 ease-in-out">
+                <p class="leading-relaxed text-sm text-center ">Um inventário artístico e histórico sobre as casas. </p>
+                <div class="tooltip-arrow" data-popper-arrow></div>
+              </div>
             </li>
             <li>
               <a data-popover-target="popover-3" href="/depoimentos" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-cinza md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 transform transition-transform duration-300 hover:scale-110">Depoimentos</a>
+              <div id="popover-3" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-600 max-w-60 transition-opacity duration-300 ease-in-out">
+                <p class="leading-relaxed text-sm text-center ">Depoimentos com informações relevantes sobre as história de algumas casas.</p>
+                <div class="tooltip-arrow" data-popper-arrow></div>
+              </div>
             </li>
             <li>
-              <a data-popover-target="popover-3" href="/sobre" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-cinza md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 transform transition-transform duration-300 hover:scale-110">Sobre nós</a>
+              <a data-popover-target="popover-4" href="/sobre" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-cinza md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 transform transition-transform duration-300 hover:scale-110">Sobre nós</a>
+              <div id="popover-4" role="popover-3" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-600 max-w-60 transition-opacity duration-300 ease-in-out">
+                <p class="leading-relaxed text-sm text-center ">Sobre os participantes do projeto e contato.</p>
+                <div class="tooltip-arrow" data-popper-arrow></div>
+              </div>
             </li>
           </ul>
         </div>
