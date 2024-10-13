@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {Component} from './Carousel'
 import {Slider} from '../components/Slider'
 import { Swiper, SwiperSlide } from 'swiper/react';
+import useAnimateOnScroll from '../components/Animation';
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -12,6 +13,8 @@ import '../assets/slider.css'
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 
 function CasasGaleria() {
+  useAnimateOnScroll();
+
   const [filtroBairro, setFiltroBairro] = useState('');
   const [casasData] = useState([
     { desenho: "img/desenhos/4.jpg", casa: "img/casas/Funcionarios/AvenidaCyroCottaPoggiali09.png", endereco: "Bairro Funcionarios. Avenida Cyro Cotta Poggiali, 09", bairro: "Funcionarios", mapa: "https://www.google.com/maps/d/u/0/viewer?mid=1W8_QiOSp1uzTWyAPHwDGDDFahhPzCUo&ll=-19.5448266658892%2C-42.64709998332227&z=22&force=1", fachada: "Fachada 1"},
@@ -199,7 +202,7 @@ const bairrosFiltrados = Object.keys(casasPorBairro).filter(bairro =>
 );
 
 return (
-  <div>
+  <div className="animate-up opacity-0">
     {/* Renderizar casas agrupadas por bairro filtrado */}
     {bairrosFiltrados.map(bairro => (
       <div key={bairro} className="mb-4">

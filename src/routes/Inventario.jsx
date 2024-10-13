@@ -2,9 +2,11 @@
 import React, { useState } from 'react';
 import {Component} from '../components/CarouselInv';
 import CasasGaleria from '../components/CasasGaleria';
+import useAnimateOnScroll from '../components/Animation';
 
 
 const Inventario = () => {
+  useAnimateOnScroll();
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = (event) => {
@@ -12,22 +14,25 @@ const Inventario = () => {
   };
 
   return (
-    <div className="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
+    <div className="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal ">
 
 
-      <div className="carousel relative container mt-14 mx-auto max-w-screen-2xl " >
+      <div className="animate carousel relative container mt-14 mx-auto max-w-screen-2xl opacity-0" >
         <div className="carousel-inner relative overflow-hidden w-full">
           <Component></Component>
         </div>
       </div>
+ 
+
+  
 
 
-      <section className="bg-white py-8">
+      <section className="bg-white  py-8 ">
         <div className="container mx-auto flex items-center flex-wrap pt-4 pb-12">
-          <nav id="store" className="w-full z-30 top-0 px-6 py-1">
+          <nav id="store" className="w-full z-30 top-0 px-6 py-1 animate-left opacity-0">
             <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
               <h1 className="text-center custom-font tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-3xl">Galeria</h1>
-              <div className="relative">
+              <div className="relative ">
                 <input 
                   type="text" 
                   id="filtroBairroInput" 
@@ -50,7 +55,7 @@ const Inventario = () => {
             </div>
           </nav>
           <div className="container mx-auto">
-            <div className="z-35 container mx-auto mt-4">
+            <div className="z-35 container mx-auto mt-4 ">
               
               <CasasGaleria></CasasGaleria>
               {/* Aqui você pode importar e usar o componente Galeria, passando os dados filtrados */}
