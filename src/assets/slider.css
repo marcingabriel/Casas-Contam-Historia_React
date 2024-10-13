@@ -70,17 +70,33 @@ body {
 .slider-controler {
   position: relative;
   display: flex;
-  bottom: 2rem;
+  bottom: 3rem;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
+
 }
 
 .swiper-pagination {
-  position: flex;
+  position: relative; /* Centraliza no contêiner pai */
   bottom: -2rem; /* Coloca a paginação um pouco abaixo */
-  width: auto;
+  max-width: 500px; /* Limita a largura máxima da div */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centraliza o conteúdo dentro da própria div */
+  overflow-wrap: break-word;
+  
 }
+.swiper-pagination-bullet {
+  width: max-content;
+  background: none; /* Remove a bolinha */
+ 
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+  color: #4a5568; /* Cor para o número ativo */
+  opacity: 1; /* Realça o número ativo */
+}
+
 
 .swiper-button-prev, .swiper-button-next {
   z-index: 10;
@@ -102,24 +118,44 @@ body {
 @media (max-width: 990px) {
   .slider-controler .swiper-button-next {
     right: 3rem; /* Ajusta para telas menores */
+    
   }
   
   .slider-controler .swiper-button-prev {
     left: 3rem; /* Ajusta para telas menores */
+  
   }
 }
 
-@media (max-width: 450px) {
-  .swiper-pagination {
-    bottom: -1rem;
-  }
+@media (max-width: 650px) {
   .slider-controler .swiper-button-next {
-    right: 2rem; /* Ajusta ainda mais a posição das setas em telas pequenas */
+    right: 0rem; /* Ajusta ainda mais a posição das setas em telas pequenas */
+    position: relative;
   }
   
   .slider-controler .swiper-button-prev {
-    left: 2rem;
+    left: 0rem;
+    position: relative;
   }
+
+  .slider-controler {
+
+    bottom: 5rem;
+
+  
+  }
+
+    .swiper-pagination .swiper-pagination-bullet {
+      font-size: 0.8rem; /* Ajusta o tamanho dos números em telas menores */
+  }
+  .swiper-pagination {
+
+    bottom: 1rem; /* Coloca a paginação um pouco abaixo */
+ 
+    
+  }
+
+
 }
 
 .slider-controler .slider-arrow {

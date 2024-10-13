@@ -14,7 +14,7 @@ import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 function CasasGaleria() {
   const [filtroBairro, setFiltroBairro] = useState('');
   const [casasData] = useState([
-    { desenho: "img/desenhos/4.jpg", casa: "img/casas/Funcionarios/Avenida Cyro Cotta Poggiali, 09.png", endereco: "Bairro Funcionarios. Avenida Cyro Cotta Poggiali, 09", bairro: "Funcionarios", mapa: "https://www.google.com/maps/d/u/0/viewer?mid=1W8_QiOSp1uzTWyAPHwDGDDFahhPzCUo&ll=-19.5448266658892%2C-42.64709998332227&z=22&force=1", fachada: "Fachada 1"},
+    { desenho: "img/desenhos/4.jpg", casa: "img/casas/Funcionarios/AvenidaCyroCottaPoggiali09.png", endereco: "Bairro Funcionarios. Avenida Cyro Cotta Poggiali, 09", bairro: "Funcionarios", mapa: "https://www.google.com/maps/d/u/0/viewer?mid=1W8_QiOSp1uzTWyAPHwDGDDFahhPzCUo&ll=-19.5448266658892%2C-42.64709998332227&z=22&force=1", fachada: "Fachada 1"},
     { desenho: "img/desenhos/3.jpg", casa: "img/casas/Funcionarios/Avenida Alberto Batista Gallo, n 11.jpg", endereco: "Bairro Funcionarios. Avenida Alberto Batista Gallo, n 11.", bairro: "Funcionarios",  mapa:"https://www.google.com/maps/d/u/0/viewer?mid=1W8_QiOSp1uzTWyAPHwDGDDFahhPzCUo&ll=-19.54624235001071%2C-42.64653914999999&z=22", fachada: "Diversas" },
     { desenho: "img/desenhos/5.jpg", casa: "img/casas/Funcionarios/Avenida Jucelino Kubisckek, 12.png", endereco: "Bairro Funcionarios. Avenida Jucelino Kubisckek, 12.", bairro: "Funcionarios",  mapa:"https://www.google.com/maps/d/u/0/viewer?mid=1W8_QiOSp1uzTWyAPHwDGDDFahhPzCUo&ll=-19.543718161813988%2C-42.64832074181211&z=22 ", fachada: "Diversas" },
     { desenho: "img/desenhos/Funcionarios/2.jpg", casa: "img/casas/Funcionarios/Avenida Alberto Batista Gallo, 4.png", endereco: "Avenida Alberto Batista Gallo, 4.", bairro: "Funcionarios",  mapa:"https://www.google.com/maps/d/u/0/viewer?mid=1W8_QiOSp1uzTWyAPHwDGDDFahhPzCUo&ll=-19.545844499999998%2C-42.6457717&z=22 ", fachada: "Diversas"},
@@ -200,35 +200,20 @@ const bairrosFiltrados = Object.keys(casasPorBairro).filter(bairro =>
 
 return (
   <div>
-    {/* Renderizar casas agrupadas por fachada no bairro filtrado */}
-    {bairrosFiltrados.map(bairro => {
-      // Para cada bairro, agrupar as casas por fachada
-      const casasPorFachada = {};
-      casasPorBairro[bairro].forEach(casa => {
-        if (!casasPorFachada[casa.fachada]) {
-          casasPorFachada[casa.fachada] = [];
-        }
-        casasPorFachada[casa.fachada].push(casa);
-      });
-
-      return (
-        <div key={bairro} className="mb-4">
-          <h2 className="text-xl font-bold mb-2">{bairro}</h2>
-          <div className="">
-            {/* Para cada fachada única dentro do bairro, renderizar um slider */}
-            {Object.keys(casasPorFachada).map(fachada => (
-              <Slider
-                key={fachada}
-                fachada={fachada}
-                casas={casasPorFachada[fachada]} // Passa todas as casas dessa fachada
-              />
-            ))}
-          </div>
+    {/* Renderizar casas agrupadas por bairro filtrado */}
+    {bairrosFiltrados.map(bairro => (
+      <div key={bairro} className="mb-4">
+        <h2 className="text-xl font-bold mb-2">{bairro}</h2>
+        <div className="slider-container">
+          {/* Chamar o componente Slider passando todas as casas do bairro */}
+          <Slider casas={casasPorBairro[bairro]} fachada={`Casas no bairro ${bairro}`} />
         </div>
-      );
-    })}
+      </div>
+    ))}
   </div>
 );
+
+
 
 }
 

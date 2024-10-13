@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import '../assets/style.css'
 import '../assets/style1.css'
 import useAnimateOnScroll from '../components/Animation';
 import CasasMain from '../components/CasasMain';
+import { FaMusic } from 'react-icons/fa'; // Pacote react-icons para o ícone de música
+import { FaHeadphones } from 'react-icons/fa'; // Ícone de fones de ouvido
+
+
 
 const Home = () => {
   useAnimateOnScroll();
 
   return (
     <div>  
+        
       <div className="background-image filter brightness-75 sm:bg-fixed bg-cover bg-center">
         <div className="w-full h-72 bg-stone-400 bg-opacity-70 flex flex-col justify-center items-center">
           <div className="text-center mt-10 md:mt-0">
