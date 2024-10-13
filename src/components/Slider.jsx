@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { DrawerComponent } from './Drawer';
+import useAnimateOnScroll from '../components/Animation';
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -14,6 +15,7 @@ import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 export function Slider({ casas, fachada }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedCasa, setSelectedCasa] = useState(null);
+  useAnimateOnScroll();
 
   const openDrawer = (casa) => {
     setSelectedCasa(casa);
@@ -26,7 +28,7 @@ export function Slider({ casas, fachada }) {
 
   return (
     <div>
-      <div className="containerSlider">
+      <div className="containerSlider animate-up opacity-0">
       <Swiper
         effect={'coverflow'}
         grabCursor={true}

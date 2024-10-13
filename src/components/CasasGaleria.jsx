@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {Component} from './Carousel'
 import {Slider} from '../components/Slider'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import useAnimateOnScroll from '../components/Animation';
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -13,7 +12,6 @@ import '../assets/slider.css'
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 
 function CasasGaleria() {
-  useAnimateOnScroll();
 
   const [filtroBairro, setFiltroBairro] = useState('');
   const [casasData] = useState([
@@ -202,7 +200,7 @@ const bairrosFiltrados = Object.keys(casasPorBairro).filter(bairro =>
 );
 
 return (
-  <div className="animate-up opacity-0">
+  <div >
     {/* Renderizar casas agrupadas por bairro filtrado */}
     {bairrosFiltrados.map(bairro => (
       <div key={bairro} className="mb-4">

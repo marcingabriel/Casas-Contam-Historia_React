@@ -55,7 +55,7 @@ const Inventario = () => {
             </div>
           </nav>
           <div className="container mx-auto">
-            <div className="z-35 container mx-auto mt-4 ">
+            <div className="z-35 container mx-auto mt-4">
               
               <CasasGaleria></CasasGaleria>
               {/* Aqui você pode importar e usar o componente Galeria, passando os dados filtrados */}

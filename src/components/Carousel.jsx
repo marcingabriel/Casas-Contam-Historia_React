@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Carousel } from 'flowbite-react';
 import { DrawerComponent } from './Drawer';
 
+
 export function Component({ desenho, casa, endereco, bairro, mapa }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
 
   const openDrawer = () => {
     setIsDrawerOpen(true);
@@ -15,7 +17,7 @@ export function Component({ desenho, casa, endereco, bairro, mapa }) {
 
   return (
     <div>
-      <div className="ml-2 pr-3 mt-2 mb-2 w-full  md:p-3 flex flex-col h-56  xl:h-60 2xl:h-72  ">
+      <div className="ml-2 pr-3 mt-2 mb-2 w-full  md:p-3 flex flex-col h-56  xl:h-60 2xl:h-72 ">
         <Carousel slide={false}>
           <img
             src={desenho}
