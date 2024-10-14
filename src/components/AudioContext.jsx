@@ -10,52 +10,46 @@ export const AudioProvider = ({ children }) => {
     Number(localStorage.getItem('currentTime')) || 0
   );
 
-  const [volume, setVolume] = useState(
-    Number(localStorage.getItem('volume')) || 1 // 1 é o volume máximo
-  );
+  const [volume, setVolume] = useState(() => {
+    const storedVolume = Number(localStorage.getItem('volume'));
+    return storedVolume >= 0 && storedVolume <= 1 ? storedVolume : 1; // Garante que o valor inicial esteja correto
+  });
+  
   const audioRef = useRef(null);
 
-  // Efeito para ajustar o estado do áudio ao carregar a página
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.currentTime = currentTime; // Definir o tempo atual do áudio
-      audioRef.current.volume = volume; // Definir o volume do áudio
+      audioRef.current.currentTime = currentTime;
+      audioRef.current.volume = volume;
 
-      // Somente tocar o áudio se ele não estiver pausado
       const storedIsPlaying = JSON.parse(localStorage.getItem('isPlaying'));
       if (storedIsPlaying) {
         audioRef.current.play();
       }
     }
-  }, [audioRef, volume]);
+  }, [audioRef]);
 
-  // Função para tocar o áudio e salvar o estado no localStorage
   const playAudio = () => {
     setIsPlaying(true);
-    localStorage.setItem('isPlaying', true); // Salvar o estado de "tocando"
+    localStorage.setItem('isPlaying', true);
     audioRef.current.play();
   };
 
-  // Função para pausar o áudio e salvar o estado no localStorage
   const pauseAudio = () => {
     setIsPlaying(false);
-    localStorage.setItem('isPlaying', false); // Salvar o estado de "pausado"
+    localStorage.setItem('isPlaying', false);
     audioRef.current.pause();
   };
 
-  // Função para atualizar o tempo do áudio
   const updateTime = () => {
     setCurrentTime(audioRef.current.currentTime);
-    localStorage.setItem('currentTime', audioRef.current.currentTime); // Salvar o tempo atual
+    localStorage.setItem('currentTime', audioRef.current.currentTime);
   };
 
-   // Função para atualizar o volume do áudio
-   const updateVolume = (newVolume) => {
+  const handleVolumeChange = () => {
+    const newVolume = Math.min(1, Math.max(0, audioRef.current.volume));
     setVolume(newVolume);
-    localStorage.setItem('volume', newVolume); // Salvar o volume no localStorage
-    if (audioRef.current) {
-      audioRef.current.volume = newVolume; // Aplicar o novo volume
-    }
+    localStorage.setItem('volume', newVolume);
   };
 
   const [isControlsVisible, setIsControlsVisible] = useState(false);
@@ -66,8 +60,9 @@ export const AudioProvider = ({ children }) => {
         isPlaying,
         playAudio,
         pauseAudio,
-        currentTime,
         volume,
+        handleVolumeChange,
+        currentTime,
         setCurrentTime,
         audioRef,
         updateTime,
@@ -76,11 +71,10 @@ export const AudioProvider = ({ children }) => {
       }}
     >
       {children}
-      {/* Player de áudio global */}
       <audio
         ref={audioRef}
         controls
-        autoPlay={false} // Desabilitar autoplay para evitar conflitos
+        autoPlay={false}
         preload="auto"
         onMouseEnter={() => setIsControlsVisible(true)}
         onMouseLeave={() => setIsControlsVisible(false)}
@@ -93,19 +87,8 @@ export const AudioProvider = ({ children }) => {
         src="midia/testemusic.mp3"
         type="audio/mp3"
         onTimeUpdate={updateTime}
-        onEnded={() => setIsPlaying(false)} // Garantir que o estado volte a falso ao fim da música
-        
-      />
-
-       {/* Controle de volume */}
-       <input
-        type="range"
-        min="0"
-        max="1"
-        step="0.01"
-        value={volume}
-        onChange={(e) => updateVolume(e.target.value)} // Atualiza o volume com o valor do controle
-        className="volume-slider z-50 fixed top-12"
+        onEnded={() => setIsPlaying(false)}
+        onVolumeChange={handleVolumeChange}
       />
     </AudioContext.Provider>
   );
