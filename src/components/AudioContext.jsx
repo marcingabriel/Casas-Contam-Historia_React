@@ -3,52 +3,71 @@ import React, { createContext, useState, useRef, useEffect } from 'react';
 export const AudioContext = createContext();
 
 export const AudioProvider = ({ children }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(
+    JSON.parse(localStorage.getItem('isPlaying')) || false
+  );
   const [currentTime, setCurrentTime] = useState(
-    Number(localStorage.getItem('currentTime')) || 0 // Recuperar o tempo atual do localStorage
+    Number(localStorage.getItem('currentTime')) || 0
   );
   const audioRef = useRef(null);
 
-  // Ao iniciar o componente, definir o tempo atual armazenado e manter o estado de reprodução
+  // Efeito para ajustar o estado do áudio ao carregar a página
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.currentTime = currentTime; // Definir o tempo inicial da música
+      audioRef.current.currentTime = currentTime; // Definir o tempo atual do áudio
+
+      // Somente tocar o áudio se ele não estiver pausado
+      const storedIsPlaying = JSON.parse(localStorage.getItem('isPlaying'));
+      if (storedIsPlaying) {
+        audioRef.current.play();
+      }
     }
   }, [audioRef]);
 
-  // Função para tocar áudio e salvar o estado de reprodução
+  // Função para tocar o áudio e salvar o estado no localStorage
   const playAudio = () => {
     setIsPlaying(true);
+    localStorage.setItem('isPlaying', true); // Salvar o estado de "tocando"
     audioRef.current.play();
   };
 
-  // Função para pausar áudio e salvar o estado de reprodução
+  // Função para pausar o áudio e salvar o estado no localStorage
   const pauseAudio = () => {
     setIsPlaying(false);
+    localStorage.setItem('isPlaying', false); // Salvar o estado de "pausado"
     audioRef.current.pause();
   };
 
-  // Função para atualizar o tempo atual
+  // Função para atualizar o tempo do áudio
   const updateTime = () => {
     setCurrentTime(audioRef.current.currentTime);
-    localStorage.setItem('currentTime', audioRef.current.currentTime); // Armazenar o tempo atual no localStorage
+    localStorage.setItem('currentTime', audioRef.current.currentTime); // Salvar o tempo atual
   };
 
- // Novo estado para controlar a visibilidade dos controles
- const [isControlsVisible, setIsControlsVisible] = useState(false);
+  const [isControlsVisible, setIsControlsVisible] = useState(false);
 
   return (
     <AudioContext.Provider
-      value={{ isPlaying, playAudio, pauseAudio, currentTime, setCurrentTime, audioRef, updateTime,isControlsVisible, setIsControlsVisible,}}
+      value={{
+        isPlaying,
+        playAudio,
+        pauseAudio,
+        currentTime,
+        setCurrentTime,
+        audioRef,
+        updateTime,
+        isControlsVisible,
+        setIsControlsVisible,
+      }}
     >
       {children}
       {/* Player de áudio global */}
       <audio
         ref={audioRef}
         controls
-        autoPlay={true}
+        autoPlay={false} // Desabilitar autoplay para evitar conflitos
         preload="auto"
-        onMouseEnter={() => setIsControlsVisible(true)} // Manter controles visíveis quando o mouse estiver sobre eles
+        onMouseEnter={() => setIsControlsVisible(true)}
         onMouseLeave={() => setIsControlsVisible(false)}
         style={{
           opacity: isControlsVisible ? 1 : 0,
@@ -58,7 +77,8 @@ export const AudioProvider = ({ children }) => {
         className="fixed top-12 right-20 bg-gray-800 text-white rounded-full p-1 w-64 sm:w-72 md:w-80 z-50"
         src="midia/testemusic.mp3"
         type="audio/mp3"
-        onTimeUpdate={updateTime} // Atualizar o tempo ao longo da execução
+        onTimeUpdate={updateTime}
+        onEnded={() => setIsPlaying(false)} // Garantir que o estado volte a falso ao fim da música
       />
     </AudioContext.Provider>
   );
