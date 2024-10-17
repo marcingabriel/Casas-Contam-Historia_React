@@ -1,6 +1,4 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
-import { Dropdown } from "flowbite-react";
-import { FaMusic } from 'react-icons/fa'; // Pacote react-icons para o ícone de música
 import { FaHeadphones } from 'react-icons/fa'; // Ícone de fones de ouvido
 import { AudioContext } from './AudioContext'; // Importar o contexto
 

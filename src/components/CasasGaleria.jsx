@@ -4,7 +4,7 @@ import {Slider} from '../components/Slider'
 function CasasGaleria() {
 
   const [visibleCasas, setVisibleCasas] = useState({});
-  const [itemsPerPage] = useState(10);
+  const [itemsPerPage] = useState(40);
   const [filtroBairro, setFiltroBairro] = useState("");
   const [casasData] = useState([
     { desenho: "img/desenhos/4.jpg", casa: "img/casas/Funcionarios/AvenidaCyroCottaPoggiali09.png", endereco: "Bairro Funcionarios. Avenida Cyro Cotta Poggiali, 09", bairro: "Funcionarios", mapa: "https://www.google.com/maps/d/u/0/viewer?mid=1W8_QiOSp1uzTWyAPHwDGDDFahhPzCUo&ll=-19.5448266658892%2C-42.64709998332227&z=22&force=1", fachada: "Fachada 1"},

@@ -3,6 +3,7 @@ import {Component} from '../components/CardIntegrantes'
 import { Prof } from '../components/CardProf';
 import useAnimateOnScroll from '../components/Animation';
 import emailjs from '@emailjs/browser'
+import '../assets/nav.css'
 
 const Sobre = () => {
   const [name, setName] = useState('')

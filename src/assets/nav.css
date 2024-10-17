@@ -1,0 +1,10 @@
+/* CSS para a barra de navegação */
+.transparent-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 74px; /* Altura da barra de navegação */
+    background-color: rgba(255, 255, 255, 0.2); /* Cor de fundo com transparência */
+    z-index: 40; /* Certifique-se de que a barra de navegação esteja sobre a imagem de fundo */
+}

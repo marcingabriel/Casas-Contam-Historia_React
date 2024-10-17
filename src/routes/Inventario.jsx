@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import {Component} from '../components/CarouselInv';
 import CasasGaleria from '../components/CasasGaleria';
 import useAnimateOnScroll from '../components/Animation';
+import '../assets/nav.css'
 
 
 const Inventario = () => {

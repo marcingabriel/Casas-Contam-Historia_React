@@ -4,6 +4,7 @@ import { depoimentos } from '../../scripts/depoimentos'; // Supondo que 'depoime
 import '../assets/style.css'
 import useAnimateOnScroll from '../components/Animation';
 import { HR } from "flowbite-react";
+import '../assets/nav.css'
 
 const Depoimentos = () => {
   useAnimateOnScroll();
