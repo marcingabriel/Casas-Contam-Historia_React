@@ -1,15 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import {Component} from './Carousel'
+import React, { useState, useEffect, useRef } from 'react';
 import {Slider} from '../components/Slider'
-import { Swiper, SwiperSlide } from 'swiper/react';
 
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import '../assets/slider.css' 
 
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+const useOnScreen = (ref, rootMargin = '0px') => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { rootMargin }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [ref, rootMargin]);
+
+  return isVisible;
+};
 
 function CasasGaleria() {
 
@@ -200,22 +216,48 @@ const bairrosFiltrados = Object.keys(casasPorBairro).filter(bairro =>
 );
 
 return (
-  <div >
+  <div>
     {/* Renderizar casas agrupadas por bairro filtrado */}
     {bairrosFiltrados.map(bairro => (
-      <div key={bairro} className="mb-4">
-        <h2 className="text-xl font-bold mb-2">{bairro}</h2>
-        <div className="slider-container">
-          {/* Chamar o componente Slider passando todas as casas do bairro */}
-          <Slider casas={casasPorBairro[bairro]} fachada={`Casas no bairro ${bairro}`} />
-        </div>
-      </div>
+      <BairroSlider
+        key={bairro}
+        bairro={bairro}
+        casas={casasPorBairro[bairro]}
+      />
     ))}
   </div>
 );
-
-
-
 }
+
+// Componente separado para aplicar o Intersection Observer
+const BairroSlider = ({ bairro, casas }) => {
+  const ref = useRef();
+  const isVisible = useOnScreen(ref);
+
+  // Estado local para controlar se o conteúdo já foi carregado uma vez
+  const [loadedOnce, setLoadedOnce] = useState(false);
+
+  useEffect(() => {
+    // Definir o estado como carregado assim que for visível pela primeira vez
+    if (isVisible) {
+      setLoadedOnce(true);
+    }
+  }, [isVisible]);
+
+  return (
+    <div ref={ref} className="mb-4">
+      {/* Renderizar apenas se já foi carregado uma vez ou está visível */}
+      {(loadedOnce || isVisible) && (
+        <>
+          <h2 className="text-xl font-bold mb-2">{bairro}</h2>
+          <div className="slider-container">
+            {/* Chamar o componente Slider passando todas as casas do bairro */}
+            <Slider casas={casas} fachada={`Casas no bairro ${bairro}`} />
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
 
 export default CasasGaleria;
