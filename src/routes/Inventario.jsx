@@ -1,4 +1,4 @@
-// src/routes/Inventario.jsx
+
 import React, { useState } from 'react';
 import {Component} from '../components/CarouselInv';
 import CasasGaleria from '../components/CasasGaleria';
@@ -56,11 +56,8 @@ const Inventario = () => {
             </div>
           </nav>
           <div className="container mx-auto">
-            <div className="z-35 container mx-auto mt-4">
-              
+            <div className="z-35 container mx-auto mt-4">   
               <CasasGaleria></CasasGaleria>
-              {/* Aqui você pode importar e usar o componente Galeria, passando os dados filtrados */}
-              {/* <Galeria searchTerm={searchTerm} /> */}
             </div>
 
             

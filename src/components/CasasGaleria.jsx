@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {Slider} from '../components/Slider'
 
-function CasasGaleria() {
 
-  const [visibleCasas, setVisibleCasas] = useState({});
-  const [itemsPerPage] = useState(40);
-  const [filtroBairro, setFiltroBairro] = useState("");
+function CasasGaleria() {
+  const [filtroBairro, setFiltroBairro] = useState('');
   const [casasData] = useState([
     { desenho: "img/desenhos/4.jpg", casa: "img/casas/Funcionarios/AvenidaCyroCottaPoggiali09.png", endereco: "Bairro Funcionarios. Avenida Cyro Cotta Poggiali, 09", bairro: "Funcionarios", mapa: "https://www.google.com/maps/d/u/0/viewer?mid=1W8_QiOSp1uzTWyAPHwDGDDFahhPzCUo&ll=-19.5448266658892%2C-42.64709998332227&z=22&force=1", fachada: "Fachada 1"},
     { desenho: "img/desenhos/3.jpg", casa: "img/casas/Funcionarios/Avenida Alberto Batista Gallo, n 11.jpg", endereco: "Bairro Funcionarios. Avenida Alberto Batista Gallo, n 11.", bairro: "Funcionarios",  mapa:"https://www.google.com/maps/d/u/0/viewer?mid=1W8_QiOSp1uzTWyAPHwDGDDFahhPzCUo&ll=-19.54624235001071%2C-42.64653914999999&z=22", fachada: "Diversas" },
@@ -151,69 +149,63 @@ function CasasGaleria() {
     { desenho: 'public/img/desenhos/155.jpg', casa: 'img/casas/Quitandinha/image-027.jpg', endereco: "Avenida México, 136.", bairro: "Quitandinha", mapa: "https://www.google.com/maps/d/u/0/viewer?mid=1W8_QiOSp1uzTWyAPHwDGDDFahhPzCUo&ll=-19.54267200000001%2C-42.63614210000001&z=22", fachada: "Diversos" },
   ]);
 
-  const filtrarPorBairro = (data, filtro) => {
-    return data.filter(casa => casa.bairro.toLowerCase().includes(filtro.toLowerCase()));
-  };
-
-  useEffect(() => {
-    const input = document.getElementById('filtroBairroInput');
-    if (input) {
-      input.addEventListener('input', () => setFiltroBairro(input.value));
-      return () => input.removeEventListener('input', () => setFiltroBairro(input.value));
-    }
-  }, []);
-
-  useEffect(() => {
-    const casasPorBairro = {};
-    casasData.forEach(casa => {
-      if (!casasPorBairro[casa.bairro]) {
-        casasPorBairro[casa.bairro] = [];
-      }
-      casasPorBairro[casa.bairro].push(casa);
-    });
-
-    const initialVisible = {};
-    Object.keys(casasPorBairro).forEach(bairro => {
-      initialVisible[bairro] = casasPorBairro[bairro].slice(0, itemsPerPage);
-    });
-    setVisibleCasas(initialVisible);
-  }, [filtroBairro, casasData]);
-
-  const loadMoreCasas = (bairro) => {
-    const todasCasasDoBairro = casasData.filter(casa => casa.bairro === bairro);
-    const novasCasas = todasCasasDoBairro.slice(
-      visibleCasas[bairro].length,
-      visibleCasas[bairro].length + itemsPerPage
-    );
-
-    if (novasCasas.length > 0) {
-      setVisibleCasas(prevState => ({
-        ...prevState,
-        [bairro]: prevState[bairro].concat(novasCasas)
-      }));
-    }
-  };
-
-  const bairrosFiltrados = Object.keys(visibleCasas).filter(bairro =>
-    filtrarPorBairro(visibleCasas[bairro], filtroBairro).length > 0
-  );
-
-  return (
-    <div>
-      {bairrosFiltrados.map(bairro => (
-        <div key={bairro} className="mb-4">
-          <h2 className="text-xl font-bold mb-2">{bairro}</h2>
-          <div className="slider-container">
-            <Slider 
-              casas={visibleCasas[bairro]} 
-              fachada={`Casas no bairro ${bairro}`} 
-              onLoadMore={() => loadMoreCasas(bairro)} 
-            />
-          </div>
-        </div>
-      ))}
-    </div>
-  );
+// Função para filtrar por bairro
+const filtrarPorBairro = (data, filtro) => {
+  return data.filter(casa => casa.bairro.toLowerCase().includes(filtro.toLowerCase()));
 };
+
+// Função para capturar mudanças no input HTML existente
+const handleInputChange = () => {
+  const input = document.getElementById('filtroBairroInput');
+  if (input) {
+    setFiltroBairro(input.value);
+  }
+};
+
+// Efeito para sincronizar o estado com o input HTML existente
+useEffect(() => {
+  const input = document.getElementById('filtroBairroInput');
+  if (input) {
+    input.addEventListener('input', handleInputChange);
+
+    // Limpar o listener ao desmontar o componente
+    return () => {
+      input.removeEventListener('input', handleInputChange);
+    };
+  }
+}, []); // Dependência vazia para executar apenas uma vez
+
+// Agrupar as casas por bairro
+const casasPorBairro = {};
+casasData.forEach(casa => {
+  if (!casasPorBairro[casa.bairro]) {
+    casasPorBairro[casa.bairro] = [];
+  }
+  casasPorBairro[casa.bairro].push(casa);
+});
+
+// Filtrar os bairros que correspondem ao filtro
+const bairrosFiltrados = Object.keys(casasPorBairro).filter(bairro =>
+  filtrarPorBairro(casasPorBairro[bairro], filtroBairro).length > 0
+);
+
+return (
+  <div>
+    {/* Renderizar casas agrupadas por bairro filtrado */}
+    {bairrosFiltrados.map(bairro => (
+      <div key={bairro} className="mb-4">
+        <h2 className="text-xl font-bold mb-2">{bairro}</h2>
+        <div className="slider-container">
+          {/* Chamar o componente Slider passando todas as casas do bairro */}
+          <Slider casas={casasPorBairro[bairro]} fachada={`Casas no bairro ${bairro}`} />
+        </div>
+      </div>
+    ))}
+  </div>
+);
+
+
+
+}
 
 export default CasasGaleria;
