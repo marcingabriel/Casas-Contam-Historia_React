@@ -3,6 +3,8 @@ import { Button, Drawer, Modal } from "flowbite-react";
 import { useState } from "react";
 import { useEffect, useRef } from 'react';
 import { Tooltip } from "flowbite-react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 
 export function DrawerComponent({ isOpen, handleClose, desenho, casa, endereco, mapa }) {
@@ -42,8 +44,9 @@ export function DrawerComponent({ isOpen, handleClose, desenho, casa, endereco, 
       <div>
         <h1 className="md:text-xl font-semibold mb-2">Desenho da Casa</h1>
         <Tooltip content="Clique para ampliar" placement="bottom">
-          <img
+          <LazyLoadImage
             src={desenho}
+            effect="blur"
             alt="Desenho da casa"
             className="cursor-pointer hover:opacity-75 transition-opacity"
             onClick={() => openModal(desenho)}
@@ -53,8 +56,9 @@ export function DrawerComponent({ isOpen, handleClose, desenho, casa, endereco, 
       <div className ="max-h-96">
         <h1 className="md:text-xl font-semibold mb-2">Casa</h1>
         <Tooltip content="Clique para ampliar" placement="bottom">
-          <img
+          <LazyLoadImage
             src={casa}
+            effect="blur"
             alt="Foto da casa"
             className="cursor-pointer hover:opacity-75 transition-opacity  w-full"
             onClick={() => openModal(casa)}
@@ -77,8 +81,9 @@ export function DrawerComponent({ isOpen, handleClose, desenho, casa, endereco, 
   <div ref={modalRef}>
     <Modal.Header>Imagem</Modal.Header>
     <Modal.Body style={{ maxHeight: '60vh', overflowY: 'auto' }}>
-      <img
+      <LazyLoadImage
         src={modalImage}
+        effect="blur"
         alt="Imagem ampliada"
         className="w-full h-auto "  
       />
