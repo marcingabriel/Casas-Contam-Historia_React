@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {Component} from './Carousel'
 import {Slider} from '../components/Slider'
-import { Swiper, SwiperSlide } from 'swiper/react';
 
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import '../assets/slider.css' 
-
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 
 function CasasGaleria() {
 
