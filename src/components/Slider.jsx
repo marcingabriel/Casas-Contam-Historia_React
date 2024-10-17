@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { DrawerComponent } from './Drawer';
 import useAnimateOnScroll from '../components/Animation';
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -15,6 +17,7 @@ import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 export function Slider({ casas, fachada }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedCasa, setSelectedCasa] = useState(null);
+
   useAnimateOnScroll();
 
   const openDrawer = (casa) => {
@@ -60,8 +63,9 @@ export function Slider({ casas, fachada }) {
         {casas.map(casa => (
           <SwiperSlide key={casa.endereco}>
             <div className="relative slide-content">
-              <img
+              <LazyLoadImage
                 src={casa.casa}
+                effect="blur"
                 className="block w-full cursor-pointer transition-opacity duration-300 hover:opacity-90 transform hover:scale-110"
                 onClick={() => openDrawer(casa)}
                 title="Clique para ver mais informações"

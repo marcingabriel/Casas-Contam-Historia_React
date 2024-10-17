@@ -1,34 +1,26 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { Dropdown } from "flowbite-react";
 import { FaMusic } from 'react-icons/fa'; // Pacote react-icons para o ícone de música
 import { FaHeadphones } from 'react-icons/fa'; // Ícone de fones de ouvido
+import { AudioContext } from './AudioContext'; // Importar o contexto
 
 
 const NavBar = () => {
+  const { isPlaying, playAudio, pauseAudio, setIsControlsVisible } = useContext(AudioContext); // Usar o contexto
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  //const [showTooltip, setShowTooltip] = useState(false); // Estado para controlar a visibilidade do tooltip
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const [isHovered, setIsHovered] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false); // Estado para monitorar se a música está tocando
-  const audioRef = useRef(null); // Referência para o elemento de áudio
-  const [showTooltip, setShowTooltip] = useState(false); // Estado para controlar a visibilidade do tooltip
-
-
-
-
-  const handleAudioPlay = () => {
-    setIsPlaying(true);
+   const handleMouseEnter = () => {
+    setIsControlsVisible(true);
   };
 
-  const handleAudioPause = () => {
-    setIsPlaying(false);
+  const handleMouseLeave = () => {
+    setIsControlsVisible(false);
   };
-
-
-
 
 
   return (
@@ -41,27 +33,14 @@ const NavBar = () => {
           <div className="flex items-center space-x-4">
             <a href="#"><img src="img/instagram.png" alt="Logo Rede Social 1" className="h-7 transform transition-transform duration-300 hover:scale-110" /></a>
             <a href="#"><img src="img/youtube.png" alt="Logo Rede Social 2" className="h-7 transform transition-transform duration-300 hover:scale-110" /></a>
-            <div className="flex items-center space-x-1"  onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} >
-              {/* Ícone de música, visível quando o player não estiver visível */}
+            <div className="flex items-center space-x-1" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
               <FaHeadphones
-              className={`text-2xl cursor-pointer transform transition duration-300 ${isPlaying ? 'animate-bounce text-blue-700' : 'text-black'} hover:scale-110`} 
-            />
-
-              {/* Player de áudio, oculto visualmente quando não está em hover, mas ainda ativo */}
-             <audio
-              ref={audioRef}
-              controls
-              autoPlay={true}
-              className={`fixed top-14 transform -translate-x-1/2 bg-gray-800 text-white rounded-full p-1 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0 pointer-events-none'} w-64 sm:w-72 md:w-80`} 
-              onPlay={handleAudioPlay}
-              onPause={handleAudioPause}
-              onEnded={() => setIsPlaying(false)}
-            >
-              <source src="midia/testemusic.mp3" type="audio/mp3" />
-              Your browser does not support the audio element.
-            </audio>
+                className={`text-2xl cursor-pointer transform transition duration-300 ${
+                  isPlaying ? 'animate-bounce text-blue-700' : 'text-black'
+                } hover:scale-110`}
+                onClick={isPlaying ? pauseAudio : playAudio} // Alternar reprodução/pausa
+              />
             </div>          
-            {/* Adicione mais logos de redes sociais conforme necessário */}
           </div>
           <button
             onClick={toggleMenu}
