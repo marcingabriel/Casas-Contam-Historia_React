@@ -8,6 +8,7 @@ const ToastComponent = () => {
   const [progress, setProgress] = useState(0); // Controla o progresso da barra
   
 
+
 // Função para simular a barra de progresso
     useEffect(() => {
     if (progress < 100) {
@@ -51,9 +52,9 @@ const ToastComponent = () => {
         >
           <path
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
             d="M1 1l6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
           />
         </svg>
