@@ -25,7 +25,7 @@ function exibirDepoimentos(depoimentos, containerId,containerModal) {
 
         // Cria o HTML do depoimento
         depoimentosHtml += `
-        <div class="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 md:m-2 m-5 lg:m-0 transition-transform transform hover:scale-105 hover:shadow-xl">
+        <div  class="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 md:m-2 m-5 lg:m-0 transition-transform transform hover:scale-105 hover:shadow-xl">
             <a href="#" id="${depoimentoIdImg}">
                 <img  class="rounded-t-lg  object-cover object-center md:h-2/5 w-full" src="${depoimento.desenho}" alt="desenho" />
             </a>
