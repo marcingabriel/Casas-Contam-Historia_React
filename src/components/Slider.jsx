@@ -47,10 +47,10 @@ export function Slider({ casas, fachada }) {
         pagination={{
           el: '.swiper-pagination',
           clickable: true,
-          renderBullet: (index, className) => 
+          renderBullet: (index, className) => `
             <span class="${className} 
                         text-lg font-bold text-gray-900  flex
-                        bg-white w-7 h-7 pt-4 p-1  ">${index + 1}</span>,
+                        bg-white w-7 h-7 pt-4 p-1  ">${index + 1}</span>`,
         }}
         navigation={{
           nextEl: '.swiper-button-next',
