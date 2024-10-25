@@ -47,18 +47,22 @@ const Sobre = () => {
               <h1 className="text-3xl text-center font-bold pt-8 lg:pt-0 animate">Sobre nós</h1>
               <div className="mx-auto lg:mx-0 w-full pt-3 border-b-2 border-green-500 opacity-25"></div>
 
-              <h2 className="text-2xl text-center font-bold pt-8 lg:pt-0 mt-5 animate">Objetivo</h2>
               <p className="pt-8 text-md text-justify animate-left">
-                O projeto "As Casas Contam Histórias" visa se tornar uma ferramenta acessível de educação patrimonial arquitetônica no município de Timóteo,
-                com foco no patrimônio arquitetônico industrial residencial. Busca-se documentar, catalogar e disponibilizar informações sobre as fachadas originais das casas
-                construídas pela siderúrgica ACESITA (atualmente APERAM South America), facilitando o acesso do público às histórias e características dessas construções.
-                O objetivo é promover a conscientização sobre a importância desse patrimônio, incentivando sua preservação e valorização pela comunidade.
+              Em 2023, após a demolição de um relevante edifício histórico municipal, a antiga sede da fazenda que serviu como primeiro hotel na cidade, o Hotel Acesita, 
+              observou-se que apesar de possuir um patrimônio arquitetônico inventariado, o município de Timóteo não prosseguiu nas ações de preservação, visto que não foram constatadas ações de Tombamento de edifícios significativos. Assim, os mesmos encontram-se em situação vulnerável, tornando-se alvo fácil para a especulação imobiliária, indiferente à importância da preservação da história. Diante disso, sob a orientação do prof. Dr. Fábio Azevedo Vasconcellos, com a co-orientação da prof.ª Dra. Carolini Frinhani Tavares e do prof. Roberto Paiva, a pesquisa intitulada “As Casas Contam História” selecionada pelo edital de PIBIC edital DPPG 182/2022, iniciou-se em 2023 com a participação das alunas Maria Júlia Cotta e Lara Gabrielle do curso de Arquitetura e Urbanismo do CEFET-MG, do campus Timóteo. Naquele ano, a pesquisa deu início ao levantamento e observação das condições de preservação do patrimônio histórico de Timóteo. Em 2024, o projeto passou a contar com o apoio do {' '}
+              <span 
+                   onClick={() => window.open('https://www.petit.cefetmg.br/', '_blank')}
+                  className="cursor-pointer text-blue-800 hover:text-blue-600 font-bold hover:underline transition-all"
+                >
+                  PETIT 
+                </span> (Programa de Educação Tutorial Interdisciplinar de Timóteo) e suas bolsistas integrantes Larissa Sírio Coelho Penna e Maria Júlia Cotta, bem como do discente Felipe Freitas Moraes do curso de Arquitetura e Urbanismo e Márcio Gabriel G. Soares, aluno do curso de Engenharia da Computação. Este projeto tem como objetivo sensibilizar a população de Timóteo sobre o seu importante patrimônio edificado de uso residencial, originário da implantação da vila operária para a usina siderúrgica ACESITA. Para isso, realizou-se um levantamento das casas que ainda preservam suas características originais e possuem fachadas com elementos significativos da época de sua construção. Ressalta-se que, durante a realização da pesquisa, várias dessas casas foram demolidas, porém as fotografias, os desenhos à mão, feito a tinta nanquim, aquarela e marcadores desenvolvidos durante a pesquisa são um importante registro para que a população tenha conhecimento dessa arquitetura de meados do século 20, no Brasil.
               </p>
 
               <h2 className="text-2xl text-center font-bold pt-8 lg:pt-0 mt-8 animate">Integrantes</h2>
               <ul className="pt-8 text-sm grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5 mb-3 justify-items-center mx-auto animate-up">
                 <Prof></Prof>
                 <Component nome= "Prof. Carolini Tavares Frinhani" curso="Coordenadora Adjunta" funcao="Arquiteta e Urbanista, doutora em Geografia - Tratamento da Informação Espacial, Departamento de Arquitetura e Construção Civil (DACTM)" foto="img/sobre-nos/carol.png" descricao="" />
+                <Component nome= "Prof. Roberto Paiva" curso="Coordenador Adjunto" funcao="?" foto="img/sobre-nos/roberto.png" descricao="" />
                 <Component nome= "Marcio Gabriel G. Soares" curso="Eng. Computação" funcao="Bolsista do grupo PET Interdisciplinar de Timóteo DIRGRAD/CEFET-MG" foto="img/sobre-nos/marcio.png" descricao="Aluno do curso" />
                 <Component nome= "Maria Júlia Loiola Vieira Cotta" curso="Arquitetura e Urbanismo" funcao="Bolsista do grupo PET Interdisciplinar de Timóteo DIRGRAD/CEFET-MG" foto="img/sobre-nos/maria.png" descricao="Aluna do curso" />
                 <Component nome= "Larissa Sírio Coelho Penna" curso="Arquitetura e Urbanismo" funcao=" Bolsista do grupo PET Interdisciplinar de Timóteo DIRGRAD/CEFET-MG" foto="img/sobre-nos/Larissa.png" descricao="Aluna do curso"/>
@@ -66,11 +70,10 @@ const Sobre = () => {
                 <Component nome= "Lara Gabrielle" curso="Arquitetura e Urbanismo " funcao="CEFET-MG" foto="img/sobre-nos/lara.jpeg" descricao="Aluna do curso"/>
               </ul>
 
-              <h2 className="text-2xl text-center font-bold pt-8 lg:pt-0 animate mt-8">Sobre o PETIT</h2>
-              <p className="pt-8 text-md text-justify animate-left">
-                O Programa de Educação Tutorial (PET) é composto por grupos de aprendizagem, orientados, cada um, por um professor tutor, que buscam propiciar aos alunos condições para a realização de atividades extracurriculares que complementem a sua formação acadêmica, procurando atender mais plenamente às necessidades do próprio curso de graduação e/ou ampliar e aprofundar os objetivos e conteúdos programáticos que integram sua estrutura curricular. Desta forma, espera-se promover a formação ampla e de qualidade acadêmica dos alunos de graduação envolvidos direta ou indiretamente com o programa, estimulando a fixação de valores que reforcem a cidadania e a consciência social de todos os participantes para a melhoria dos cursos de graduação.
+        
 
-                O PET é um programa de longo prazo que visa realizar, dentro da universidade brasileira, o modelo de indissociabilidade do ensino, pesquisa e da extensão. Assim, além de um incentivo à melhoria da graduação, o PET pretende estimular a criação de um modelo pedagógico para a universidade, de acordo com os princípios estabelecidos na Constituição Brasileira e na Lei de Diretrizes e Bases da Educação (LDB).
+              <p className="pt-8 text-md text-justify animate-left">
+              
               </p>
 
               <h2 className="text-2xl text-center font-bold pt-8 lg:pt-0 mt-8 animate">Contato</h2>
@@ -97,6 +100,16 @@ const Sobre = () => {
                   </div>   )}
                 </div>
               </section>
+
+              <h2 className="text-2xl text-center font-bold pt-8 lg:pt-0 animate mt-8">
+                Sobre o{' '}
+                <span 
+                  onClick={() => window.location.href = 'https://sua-pagina-destino.com'}
+                  className="cursor-pointer text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  PETIT 
+                </span>
+              </h2>
             </div>
           </div>
         </div>
