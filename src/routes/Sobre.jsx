@@ -100,16 +100,6 @@ const Sobre = () => {
                   </div>   )}
                 </div>
               </section>
-
-              <h2 className="text-2xl text-center font-bold pt-8 lg:pt-0 animate mt-8">
-                Sobre o{' '}
-                <span 
-                  onClick={() => window.location.href = 'https://sua-pagina-destino.com'}
-                  className="cursor-pointer text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  PETIT 
-                </span>
-              </h2>
             </div>
           </div>
         </div>
