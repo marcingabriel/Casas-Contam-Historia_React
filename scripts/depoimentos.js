@@ -11,6 +11,8 @@ function exibirDepoimentos(depoimentos, containerId,containerModal) {
     const modalContainer = document.getElementById(containerModal);
     modalContainer.innerHTML = ''; // Limpa o conteúdo do contêiner de modais
 
+    
+
 
 
 
@@ -25,31 +27,40 @@ function exibirDepoimentos(depoimentos, containerId,containerModal) {
 
         // Cria o HTML do depoimento
         depoimentosHtml += `
-        <div  class="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 md:m-2 m-5 lg:m-0 transition-transform transform hover:scale-105 hover:shadow-xl">
+        <div class="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 md:m-2 m-5 lg:m-0 transition-transform transform hover:scale-105 hover:shadow-xl">
             <a href="#" id="${depoimentoIdImg}">
-                <img  class="rounded-t-lg  object-cover object-center md:h-2/5 w-full" src="${depoimento.desenho}" alt="desenho" />
+                <img class="rounded-t-lg object-cover object-center md:h-2/5 w-full" src="${depoimento.desenho}" alt="desenho" />
             </a>
             <div class="p-5">
                 <h3 class="text-center font-playfair-display font-bold text-2xl mb-2">
                     <span class="block font-bold">${depoimento.bairro}</span>
                 </h3>
-                <h4 class="text-center font-medium text-gray-500 text-sm mb-4">${depoimento.endereço}</h4> <!-- Subtítulo adicionado -->
-                <p class=" text-justify leading-relaxed text-gray-600 mb-4 text-sm md:text-base">${depoimento.texto}</p>
+                <h4 class="text-center font-medium text-gray-500 text-sm mb-4">${depoimento.endereço}</h4>
+                <p class="text-justify leading-relaxed text-gray-600 mb-4 text-sm md:text-base">${depoimento.texto}</p>
                 <div class="flex justify-center items-center text-center mb-4">
-                        <a href="#" id="${depoimentoId}" class=" mr-6 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-800 rounded-lg hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            Ler mais
-                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                            </svg>
-                        </a>
+                    <a href="#" id="${depoimentoId}" class="mr-6 inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-800 rounded-lg hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Ler mais
+                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </a>
                     <button id="music-button-${index}" onclick="toggleMusic(${index})">
-                        <img id="music-icon-${index}" class="w-8 h-8" src="midia/volume.png" alt="Play music">
+                        <div class="relative group inline-block">
+                            <!-- Ícone de música -->
+                            <img id="music-icon-${index}" class="w-8 h-8 cursor-pointer" src="midia/mute.png" alt="Play music">
+                            
+                            <!-- Tooltip -->
+                            <div class="absolute left-10 top-1/2 transform -translate-y-1/2 px-2 py-2 text-sm text-white bg-gray-800 rounded-lg opacity-0 transition-opacity duration-200 group-hover:opacity-80 w-40">
+                                Clique para reproduzir ou pausar.
+                            </div>
+                        </div>
                     </button>
-                    <audio id="audio-${index}" src="musica.mp3"></audio>
+                </div>
+                <div id="audio-controls-${index}" class="hidden w-full">
+                    <audio id="audio-${index}" src="${depoimento.audio}" class="w-full" controls></audio>
                 </div>
             </div>
         </div>
-
         `;
 
         // Cria o HTML do modal correspondente
@@ -61,10 +72,6 @@ function exibirDepoimentos(depoimentos, containerId,containerModal) {
                 </button>
                 <h3 class="text-center font-serif font-bold text-3xl mb-6 text-gray-800">Depoimento Completo</h3>
                 
-                <div class="mb-2 space-y-6 p-12">
-                    <h4 class="font-semibold text-xl text-gray-700">Depoimento em áudio</h4>
-                    <audio src="midia/testemusic.mp3" controls class="w-1/2 mt-1"></audio>
-                </div>
 
                 <p id="${modalTextId}" class="text-gray-700 leading-relaxed mb-6">${depoimento.entrevista}</p>
                 <button class="block mx-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 close-button">Fechar</button>
@@ -73,6 +80,9 @@ function exibirDepoimentos(depoimentos, containerId,containerModal) {
     `;
     
     });
+
+
+
 
     
 
@@ -422,7 +432,34 @@ const entrevista14 = `
 </div>
 
 `
-    
+
+// Função para tocar/pausar o áudio
+function toggleMusic(index) {
+    const audioElement = document.getElementById(`audio-${index}`);
+    const musicIcon = document.getElementById(`music-icon-${index}`);
+    const controlsContainer = document.getElementById(`audio-controls-${index}`);
+
+    if (audioElement.paused) {
+        // Toca o áudio e exibe os controles abaixo do botão
+        audioElement.play();
+        musicIcon.src = 'midia/volume.png';
+        controlsContainer.classList.remove('hidden');
+    } else {
+        // Pausa o áudio e oculta os controles
+        audioElement.pause();
+        musicIcon.src = 'midia/mute.png';
+        controlsContainer.classList.add('hidden');
+    }
+}
+
+
+
+// Tornar a função globalmente acessível
+window.toggleMusic = toggleMusic;
+
+
+
+
 
 // Exemplo de depoimentos
 export const depoimentos = [
@@ -431,7 +468,8 @@ export const depoimentos = [
         texto: "A Igreja do Timirim, o Forno Hoffman, só que, eu tenho um pouquinho de entendimento de gestão pública, eu acho que as casas são o maior patrimônio histórico de uma cidade, porque são essas casas que contam as histórias das pessoas que fizeram a cidade. De dentro dessa casa aqui, nasceu, cresceu ...", 
         entrevista: entrevista1,
         endereço: "",
-        desenho: "img/desenhos/2.jpg"
+        desenho: "img/desenhos/2.jpg",
+        audio: "midia/testemusic.mp3"
         
     },
     {
@@ -439,21 +477,24 @@ export const depoimentos = [
         texto: " Eu moro aqui desde 1962, sou proprietária. Antes teve um morador, não sei quem foi, tem tantos anos, era seu Antônio mas não sei o sobrenome dele. Não passou por reforma, na fachada não, só limpeza e lá no fundo , acrescentou um anexo na garagem.  É muito grande e velha né ...",
         entrevista: entrevista2,
         endereço: "",
-        desenho: "img/desenhos/3.jpg"
+        desenho: "img/desenhos/3.jpg",
+        audio: "midia/testemusic.mp3"
     },
     {
         bairro: "Funcionários",
         texto: "Que eu moro mesmo? Eu estive fora aqui uns anos… uns oito anos fora. Então, você vai somar aí, subtrair… já tem uns 60 anos que eu moro aqui, eu já tenho 70. Sou proprietário. Meus pais foram os primeiros donos, ficaram mais de 70 anos. Ele é dentista, ele veio para trabalhar ...",
         entrevista: entrevista3,
         endereço: "",
-        desenho: "img/desenhos/4.jpg"
+        desenho: "img/desenhos/4.jpg",
+        audio: "midia/testemusic.mp3"
     },
     {
         bairro: "Bromélias",
         texto: "Moro aqui em torno de 50 anos. Minha mãe é a proprietária, meu pai faleceu recentemente, ele comprou a casa da Acesita na época, trabalhou lá 40 anos, na época que nasceu o bairro, Bromélias. Não passou por reforma, é original mesmo. Muito importante a história da casa, é uma ...",
         entrevista: entrevista4,
         endereço: "",
-        desenho: "img/desenhos/Bromelias/11.jpg"
+        desenho: "img/desenhos/Bromelias/11.jpg",
+        audio: "midia/testemusic.mp3"
     },
 
     {
@@ -461,7 +502,8 @@ export const depoimentos = [
         texto: "Moro na casa há 7 anos. Não sou proprietário da casa, eu falo que eu sou um merecedor de ter essa casa, esse quintal, foi um desejo e ela aconteceu pra mim, apareceu essa casa, e eu cuido dela há 7 anos. Ela é alugada e os donos são uma construtora, o objetivo deles é construir um  ...",
         entrevista: entrevista5,
         endereço: "",
-        desenho: "img/desenhos/Bromelias/0.jpg"
+        desenho: "img/desenhos/Bromelias/0.jpg",
+        audio: "midia/testemusic.mp3"
     },
 
     {
@@ -469,7 +511,8 @@ export const depoimentos = [
         texto: "Trabalho aqui tem 6 anos. Não sou proprietário, também não sei quem foi o primeiro morador. A casa é original, não passou por intervenção. Já sabia que a casa é da Aperam, é, da Acesita antigamente. A história dela com certeza é importante, meu pai aposentou lá na Aperam. Top demais ...",
         entrevista: entrevista6,
         endereço: "",
-        desenho: "img/desenhos/tecnicos/11.jpg"
+        desenho: "img/desenhos/tecnicos/11.jpg",
+        audio: "midia/testemusic.mp3"
     },
 
     {
@@ -477,7 +520,8 @@ export const depoimentos = [
         texto: "Moro aqui desde que eu nasci, 33 anos. , somos proprietários. Meu pai morou aqui antes, foi uma república de recém contratados da Acesita. Essa república, não sei quanto tempo depois, ela se desfez, porque cada um comprou uma casa, e meu pai que ficou com a república. Passou por ...",
         entrevista: entrevista7,
         endereço: "",
-        desenho: "img/desenhos/7.jpg"
+        desenho: "img/desenhos/7.jpg",
+        audio: "midia/testemusic.mp3"
     },
 
     {
@@ -485,7 +529,8 @@ export const depoimentos = [
         texto: "Moro há mais de 50 anos aqui. Sou proprietária sim, foi do meu pai né, trabalhava na Aperam, antiga Acesita né, a maioria do pessoal aqui, da cidade, adquiriu pela Acesita. Foi só o telhado que teve reforma, as janelas continuam a mesma, adicionou só uma varandinha aqui só ...",
         entrevista: entrevista8,
         endereço: "",
-        desenho: "img/desenhos/Quintandinha/2.jpg"
+        desenho: "img/desenhos/Quintandinha/2.jpg",
+        audio: "midia/testemusic.mp3"
     },
 
     {
@@ -493,7 +538,8 @@ export const depoimentos = [
         texto: " Moro aqui há 64 anos, por enquanto sou proprietário. Veio de pai né, pai trabalhava na companhia, comprou a casa, ele faleceu né e ficou pros filhos. Não teve reforma, nunca mexeu nela não. Tem dificuldade porque negócio de herdeiro né, alguns quer que mexe, outros quer vender, outros não quer ...",
         entrevista: entrevista9,
         endereço: "",
-        desenho: "img/desenhos/Quintandinha/24.jpg"
+        desenho: "img/desenhos/Quintandinha/24.jpg",
+        audio: "midia/testemusic.mp3"
     },
 
     {
@@ -501,7 +547,8 @@ export const depoimentos = [
         texto: "Moro na casa há vinte anos, proprietária. O dono anterior foi Vicente Bibiano, não sei quanta história tem, só sei o nome dele. Vicente Bibiano. De reforma foi o que eles fizeram já, né? A casa trocou janela, era uma porta na frente da casa. O fundo mandou, não tinha assim... Nós tiramos o barracão ...",
         entrevista: entrevista10,
         endereço: "",
-        desenho: "img/desenhos/Quintandinha/15.jpg"
+        desenho: "img/desenhos/Quintandinha/15.jpg",
+        audio: "midia/testemusic.mp3"
     },
 
     {
@@ -509,7 +556,8 @@ export const depoimentos = [
         texto: "Moro aqui desde 2018, somos netos do dono, ele foi o primeiro morador em 1930 alguma coisa, morou aqui 82 anos. Só passou por pintura, meu vô comprou o lote e foi ele que fez a casa, então não teve reforma não só pintura mesmo que ele dava. Cê tá doido, dá vontade de chorar, isso aqui é patrimônio ...",
         entrevista: entrevista11,
         endereço: "",
-        desenho: "img/desenhos/Olaria/0.jpg"
+        desenho: "img/desenhos/Olaria/0.jpg",
+        audio: "midia/testemusic.mp3"
     },
 
     {
@@ -517,7 +565,8 @@ export const depoimentos = [
         texto: "Ai, quer ver ó, eu moro aqui, eu já frequento aqui desde menino, uma base de 60 anos. A minha irmã é a proprietária, a casa agora tá repartida por dois filhos, aqui nós tem direito de morar enquanto viver. Não fui o primeiro morador não, não sei, nessa época nós morava na Garapinha. Ah é, a primeira reforma ...",
         entrevista: entrevista12,
         endereço: "",
-        desenho: "img/desenhos/Olaria/155.jpg"
+        desenho: "img/desenhos/Olaria/155.jpg",
+        audio: "midia/testemusic.mp3"
     },
 
     {
@@ -525,7 +574,8 @@ export const depoimentos = [
         texto: " Moro há 20 anos nessa casa. A gente morava na casa do lado aqui por 3 anos e depois a gente mudou pra cá. Foram os meus avós que compraram aqui, já são falecidos, tem mais de 10 anos. Aqui foi o lugar onde os meus pais cresceram, meu pai na verdade, a família dele. Os meus avós moravam em um vilarejo chamado Mata do Garajau ...",
         entrevista: entrevista13,
         endereço: "",
-        desenho: "img/desenhos/Timirim/25.jpg"
+        desenho: "img/desenhos/Timirim/25.jpg",
+        audio: "midia/testemusic.mp3"
     },
 
     {
@@ -533,7 +583,8 @@ export const depoimentos = [
         texto: "Ai meu Deus, nossa mãe, nem calculo quanto tempo moro aqui. Deixa eu ver, se meu pai vai fazer 103 anos, minha mãe 93… Ai eu acho que mais de 60 anos, muito mais, foi logo no começo, que meu pai trabalhava na Acesita, naquele tempo ganhava né. Naquele tempo a companhia dava a casa. Nasci em Timotinha, antiga ali perto do Senai ...",
         entrevista: entrevista14,
         endereço: "",
-        desenho: "img/desenhos/Timirim/38.jpg"
+        desenho: "img/desenhos/Timirim/38.jpg",
+        audio: "midia/testemusic.mp3"
     },
 ];
 
