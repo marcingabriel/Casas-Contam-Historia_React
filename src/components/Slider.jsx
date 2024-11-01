@@ -9,14 +9,14 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import '../assets/slider.css' 
-
+import '../assets/slider.css';
 
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 
-export function Slider({ casas, fachada }) {
+export function Slider({ casas, quantidadeCasas }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedCasa, setSelectedCasa] = useState(null);
+  const [casasRenderizadas, setCasasRenderizadas] = useState(5); // Renderiza 5 inicialmente
 
   useAnimateOnScroll();
 
@@ -29,66 +29,76 @@ export function Slider({ casas, fachada }) {
     setIsDrawerOpen(false);
   };
 
+  // Função para renderizar mais casas ao navegar
+  const handleSlideChange = (swiper) => {
+    if (swiper.activeIndex >= casasRenderizadas - 2 && casasRenderizadas < quantidadeCasas) {
+      setCasasRenderizadas(casasRenderizadas + 5); // Incrementa em blocos de 5
+    }
+  };
+
   return (
     <div>
       <div className="containerSlider animate-up opacity-0">
-      <Swiper
-        effect={'coverflow'}
-        grabCursor={true}
-        centeredSlides={true}
-        loop={true}
-        slidesPerView={'auto'}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 0,
-          depth: 100,
-          modifier: 2.5,
-        }}
-        pagination={{
-          el: '.swiper-pagination',
-          clickable: true,
-          renderBullet: (index, className) => `
-            <span class="${className} 
-                        text-lg font-bold text-gray-900  flex
-                        bg-white w-7 h-7 pt-4 p-1  ">${index + 1}</span>`,
-        }}
-        navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-          clickable: true,
-        }}
-        modules={[EffectCoverflow, Pagination, Navigation]}
-        className="swiper_container"
-      >
-        {casas.map(casa => (
-          <SwiperSlide key={casa.endereco}>
-            <div className="relative slide-content">
-              <LazyLoadImage
-                src={casa.casa}
-                effect="blur"
-                className="block w-full cursor-pointer transition-opacity duration-300 hover:opacity-90 transform hover:scale-110"
-                onClick={() => openDrawer(casa)}
-                title="Clique para ver mais informações"
-              />
-              <p className="absolute bottom-2 left-2 text-white bg-black bg-opacity-40 px-2 py-1 text-sm">{casa.endereco}</p>
+        <Swiper
+          effect={'coverflow'}
+          grabCursor={true}
+          centeredSlides={true}
+          loop={false}
+          slidesPerView={'auto'}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 100,
+            modifier: 2.5,
+          }}
+          pagination={{
+            el: '.swiper-pagination',
+            clickable: true,
+            renderBullet: (index, className) => `
+              <span class="${className} 
+                          text-lg font-bold text-gray-900 flex
+                          bg-white w-7 h-7 pt-4 p-1">${index + 1}</span>`,
+            type: 'bullets', // Define bullets estáticos
+          }}
+          navigation={{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+            clickable: true,
+          }}
+          modules={[EffectCoverflow, Pagination, Navigation]}
+          className="swiper_container"
+          onSlideChange={handleSlideChange}
+        >
+          {/* Renderização condicional para manter o pagination estático */}
+          {[...Array(quantidadeCasas)].map((_, index) => (
+            <SwiperSlide key={index}>
+              {index < casasRenderizadas && casas[index] ? (
+                <div className="relative slide-content">
+                  <LazyLoadImage
+                    src={casas[index].casa}
+                    effect="blur"
+                    className="block w-full cursor-pointer transition-opacity duration-300 hover:opacity-90 transform hover:scale-110"
+                    onClick={() => openDrawer(casas[index])}
+                    title="Clique para ver mais informações"
+                  />
+                  <p className="absolute bottom-2 left-2 text-white bg-black bg-opacity-40 px-2 py-1 text-sm">{casas[index].endereco}</p>
+                </div>
+              ) : (
+                <div className="invisible" /> // Slide invisível para manter a estrutura do pagination
+              )}
+            </SwiperSlide>
+          ))}
+
+          <div className="slider-controler flex justify-between items-center">
+            <div className="swiper-button-prev slider-arrow text-white">
+              <ion-icon name="arrow-back-outline"></ion-icon>
             </div>
-          </SwiperSlide>
-        ))}
-        
-        <div className="slider-controler flex justify-between items-center ">
-          <div className="swiper-button-prev slider-arrow text-white">
-            <ion-icon name="arrow-back-outline"></ion-icon>
+            <div className="swiper-pagination text-white text-base"></div>
+            <div className="swiper-button-next slider-arrow text-white">
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </div>
           </div>
-          <div className="swiper-pagination text-white text-base"></div>
-          <div className="swiper-button-next slider-arrow text-white">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-          </div>
-        </div>
-      </Swiper>
-
-
-
-
+        </Swiper>
       </div>
 
       {selectedCasa && (
@@ -102,7 +112,6 @@ export function Slider({ casas, fachada }) {
           mapa={selectedCasa.mapa}
         />
       )}
-
     </div>
   );
 }

@@ -189,7 +189,7 @@ return (
         <h2 className="text-xl font-bold mb-2">{bairro}</h2>
         <div className="slider-container">
           {/* Chamar o componente Slider passando todas as casas do bairro */}
-          <Slider casas={casasPorBairro[bairro]} fachada={`Casas no bairro ${bairro}`} />
+          <Slider casas={casasPorBairro[bairro]} quantidadeCasas={casasPorBairro[bairro].length} />
         </div>
       </div>
     ))}
