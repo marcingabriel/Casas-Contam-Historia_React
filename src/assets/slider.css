@@ -23,19 +23,20 @@ body {
 }
 
 .containerSlider {
-  max-width: 124rem;
+  max-width: 100%; /* Garante que o contêiner ocupe toda a largura */
   padding: 4rem 1rem;
-  margin: 0 auto;
+  margin: 0; /* Remove a centralização automática */
 }
 
 
 .swiper_container {
   height: 32rem;
-  padding: 2rem;
+  padding: 2rem 0; /* Remova o padding horizontal para alinhar à esquerda */
   position: relative;
 }
 
 .swiper-slide {
+  margin-left: 0; /* Remove qualquer margem que possa centralizar */
   width: 37rem;
   height: 42rem;
   position: relative;

@@ -43,7 +43,8 @@ export function Slider({ casas, quantidadeCasas }) {
           effect={'coverflow'}
           grabCursor={true}
           centeredSlides={true}
-          loop={false}
+          loop={true} // Habilita o loop
+          loopFillGroupWithBlank={true} // Preenche espaços em branco
           slidesPerView={'auto'}
           coverflowEffect={{
             rotate: 0,
@@ -58,7 +59,7 @@ export function Slider({ casas, quantidadeCasas }) {
               <span class="${className} 
                           text-lg font-bold text-gray-900 flex
                           bg-white w-7 h-7 pt-4 p-1">${index + 1}</span>`,
-            type: 'bullets', // Define bullets estáticos
+            type: 'bullets',
           }}
           navigation={{
             nextEl: '.swiper-button-next',
@@ -72,7 +73,7 @@ export function Slider({ casas, quantidadeCasas }) {
           {/* Renderização condicional para manter o pagination estático */}
           {[...Array(quantidadeCasas)].map((_, index) => (
             <SwiperSlide key={index}>
-              {index < casasRenderizadas && casas[index] ? (
+              {(index < 5 || index >= quantidadeCasas - 5 || index < casasRenderizadas) && casas[index] ? (
                 <div className="relative slide-content">
                   <LazyLoadImage
                     src={casas[index].casa}
