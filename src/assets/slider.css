@@ -22,6 +22,16 @@ body {
   font-size: 1.1rem;
 }
 
+.lazy-load-image-background {
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
+}
+
+.lazy-load-image-loaded {
+  opacity: 1;
+}
+
+
 .containerSlider {
   max-width: 124rem;
   padding: 4rem 1rem;

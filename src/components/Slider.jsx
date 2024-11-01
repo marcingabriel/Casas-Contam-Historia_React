@@ -78,10 +78,14 @@ export function Slider({ casas, quantidadeCasas }) {
                   <LazyLoadImage
                     src={casas[index].casa}
                     effect="blur"
-                    className="block w-full cursor-pointer transition-opacity duration-300 hover:opacity-90 transform hover:scale-110"
+                    placeholderSrc="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkZGRkIi8+"
+                    className="block w-full cursor-pointer transition-opacity duration-700 ease-in-out transform hover:opacity-90 hover:scale-110 lazy-load-image-background"
+                    afterLoad={() => document.querySelector('.lazy-load-image-background').classList.add('lazy-load-image-loaded')}
                     onClick={() => openDrawer(casas[index])}
                     title="Clique para ver mais informações"
                   />
+
+
                   <p className="absolute bottom-2 left-2 text-white bg-black bg-opacity-40 px-2 py-1 text-sm">{casas[index].endereco}</p>
                 </div>
               ) : (
