@@ -1,0 +1,52 @@
+.high-contrast {
+    background-color: #000; /* Fundo preto para máximo contraste */
+    color: #fff; /* Texto branco */
+  }
+  
+  /* Links com cor contrastante */
+  .high-contrast a, .high-contrast label {
+    color: #00ff00; /* Verde fluorescente para destaque */
+  }
+  
+  /* Cabeçalhos com contraste alto */
+  .high-contrast h1, .high-contrast h2, .high-contrast h3, .high-contrast h4, 
+  .high-contrast h5, .high-contrast h6 {
+    color: #fff;
+  }
+  
+  /* Parágrafos e textos */
+  .high-contrast p, .high-contrast span, .high-contrast li, 
+  .high-contrast dt, .high-contrast dd {
+    color: #fff;
+  }
+  
+  /* Divs e áreas de destaque */
+  .high-contrast div, .high-contrast section, .high-contrast article, 
+  .high-contrast header, .high-contrast footer, .high-contrast nav, 
+  .high-contrast aside {
+    color: #fff;
+  }
+  
+  /* Input, textarea e botão com borda de contraste alto */
+  .high-contrast input, .high-contrast textarea, .high-contrast select, 
+  .high-contrast button {
+    color: #000;
+    background-color: #fff;
+    border: 2px solid #00ff00; /* Borda verde para contraste */
+  }
+  
+  /* Outros elementos de texto */
+  .high-contrast blockquote, .high-contrast code, .high-contrast pre {
+    color: #fff;
+  }
+  
+  /* Tabelas com contraste nas células */
+  .high-contrast table, .high-contrast th, .high-contrast td {
+    color: #fff;
+    border: 1px solid #00ff00; /* Borda verde para visibilidade */
+  }
+  
+  /* Listas com marcadores de alto contraste */
+  .high-contrast ul, .high-contrast ol {
+    color: #fff;
+  }

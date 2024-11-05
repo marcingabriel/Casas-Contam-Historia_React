@@ -8,6 +8,8 @@ import CasasMain from '../components/CasasMain';
 const Home = () => {
   useAnimateOnScroll();
 
+
+
   return (
     <div>  
         

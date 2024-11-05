@@ -2,12 +2,20 @@ import React, { useState, useRef, useEffect, useContext } from 'react';
 import { FaHeadphones } from 'react-icons/fa'; // Ícone de fones de ouvido
 import { AudioContext } from './AudioContext'; // Importar o contexto
 import ToastComponent from '../components/Toast'
+import '../assets/contraste.css'
 
 
 const NavBar = () => {
   const { isPlaying, playAudio, pauseAudio, setIsControlsVisible } = useContext(AudioContext); // Usar o contexto
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   //const [showTooltip, setShowTooltip] = useState(false); // Estado para controlar a visibilidade do tooltip
+
+  const [isHighContrast, setIsHighContrast] = useState(false);
+
+  const toggleContrast = () => {
+    setIsHighContrast(!isHighContrast);
+    document.body.classList.toggle('high-contrast', !isHighContrast);
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -29,8 +37,12 @@ const NavBar = () => {
         </a>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <div className="flex items-center space-x-4">
+          {/* Botão de alto contraste */}
+           {/* Botão de alto contraste */}
+           <a href="#" onClick={toggleContrast}>
+              <img src="img/contraste.png" alt="Logo Alto Contraste" className="h-7 transform transition-transform duration-300 hover:scale-110" />
+            </a>
             <a href="#"><img src="img/instagram.png" alt="Logo Rede Social 1" className="h-7 transform transition-transform duration-300 hover:scale-110" /></a>
-            <a href="#"><img src="img/youtube.png" alt="Logo Rede Social 2" className="h-7 transform transition-transform duration-300 hover:scale-110" /></a>
             <div className="flex items-center space-x-1" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
               <FaHeadphones
                 className={`text-2xl cursor-pointer transform transition duration-300 ${
