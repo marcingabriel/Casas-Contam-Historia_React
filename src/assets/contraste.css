@@ -32,7 +32,7 @@
 .high-contrast button {
   color: #000;
   background-color: #fff;
-  border: 2px solid #00ff00; /* Borda verde para contraste */
+  
 }
 
 /* Outros elementos de texto */
@@ -80,4 +80,48 @@
 .high-contrast .slider-controler .slider-arrow ion-icon:hover {
   color: #fff; /* Cor ao passar o mouse */
   transform: scale(1.2); /* Efeito de aumento para o ativo */
+}
+
+.high-contrast button.relative.inline-flex.items-center {
+  color: #00ff00; /* Texto verde fluorescente */
+}
+
+.high-contrast button.relative .bthome {
+  background-color: #000; /* Remover cor de fundo */
+  color: #00ff00; /* Cor verde para o texto interno */
+}
+
+.high-contrast button.relative .bthome:hover {
+  background-color: #000; /* Fundo preto ao passar o mouse */
+  color: #fff; /* Texto branco */
+  transform: scale(1.2); /* Efeito de aumento para o ativo */
+}
+
+.high-contrast .group[data-testid="carousel-right-control"] span,
+.high-contrast .group span {
+  background-color: #000; /* Fundo preto para máximo contraste */
+  border: 1px solid #00ff00; /* Borda verde fluorescente */
+}
+
+.high-contrast .group[data-testid="carousel-right-control"] span svg,
+.high-contrast .group span svg {
+  color: #00ff00; /* Ícone em verde fluorescente */
+  stroke: #00ff00; /* Cor da borda do ícone */
+}
+
+.high-contrast .group[data-testid="carousel-right-control"] span:hover,
+.high-contrast .group span:hover {
+  transform: scale(1.2); /* Efeito de aumento para o ativo */
+}
+
+.high-contrast .group[data-testid="carousel-right-control"]:focus span,
+.high-contrast .group:focus span {
+  outline: 2px solid #00ff00; /* Foco com borda verde */
+  box-shadow: 0 0 5px #00ff00; /* Sombra para visibilidade */
+}
+
+.high-contrast input, .high-contrast textarea, .high-contrast select, .high-contrast button {
+  color: #000;
+  background-color: transparent;
+
 }

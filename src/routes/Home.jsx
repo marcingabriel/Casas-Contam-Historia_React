@@ -70,7 +70,7 @@ const Home = () => {
         <div className="text-center mt-5 animate">
           <a href="/inventario">
             <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
-              <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+              <span className="bthome relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                 Ver mais
               </span>
             </button>
@@ -82,7 +82,7 @@ const Home = () => {
 
       <div className="container mx-auto relative z-10 items-center-center animate-up">
         <div className="flex flex-col md:flex-row justify-center m-2 mt-8 space-y-8 md:space-y-0 md:space-x-8">
-          <div className="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 md:m-2 m-5 lg:m-0 transition-transform transform hover:scale-105 hover:shadow-xl">
+          <div className="relative max-w-sm  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 md:m-2 m-5 lg:m-0 transition-transform transform hover:scale-105 hover:shadow-xl">
             <a href="#">
               <img className="rounded-t-lg object-cover object-center md:h-2/5 w-full" src="img/desenhos/2.jpg" alt="Funcionários" />
             </a>
@@ -102,7 +102,7 @@ const Home = () => {
               </a>
             </div>
           </div>
-          <div className="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 md:m-2 m-5 lg:m-0 transition-transform transform hover:scale-105 hover:shadow-xl">
+          <div className="relative max-w-sm border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 md:m-2 m-5 lg:m-0 transition-transform transform hover:scale-105 hover:shadow-xl">
             <a href="/depoimentos">
               <img className="rounded-t-lg object-cover object-center md:h-2/5 w-full" src="img/desenhos/7.jpg" alt="Bromélias" />
             </a>
@@ -127,7 +127,7 @@ const Home = () => {
         <div className="text-center mt-4">
           <a href="/depoimentos">
             <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
-              <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+              <span className="relative bthome px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                 Ver mais
               </span>
             </button>
