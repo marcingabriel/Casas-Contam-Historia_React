@@ -10,6 +10,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import '../assets/slider.css';
+import '../assets/contraste.css'
 
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 
