@@ -87,8 +87,7 @@ const NavBar = () => {
         </div>
       </div>
       
-      <ToastComponent></ToastComponent>
-               
+      {/*<ToastComponent></ToastComponent> */}
 
 
 
