@@ -66,14 +66,14 @@ function exibirDepoimentos(depoimentos, containerId,containerModal) {
         // Cria o HTML do modal correspondente
         modaisHtml += `
         <div id="${modalId}" class="text-left modal hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50 ">
-            <div class="modalz bg-white p-8 rounded-lg shadow-lg w-10/12 md:w-3/4 lg:w-2/3 relative " style="max-height: calc(90%); overflow-y: auto; margin-top: 70px; ">
+            <div class="modalz bg-white p-6 sm:p-2 md:p-8 rounded-lg shadow-lg  w-11/12 sm:w-5/6 md:w-3/4 lg:w-2/3 relative " style="max-height: calc(90%); overflow-y: auto; margin-top: 70px; ">
                 <button class="absolute top-2 right-2 text-gray-600 hover:text-blue-800 close-modal text-2xl">
                     &times;
                 </button>
                 <h3 class="text-center font-serif font-bold text-3xl mb-6 text-gray-800">Depoimento Completo</h3>
                 
 
-                <p id="${modalTextId}" class="text-gray-700 leading-relaxed mb-6">${depoimento.entrevista}</p>
+                <p id="${modalTextId}" class="text-gray-700 leading-relaxed mb-4 sm:mb-6 text-base sm:text-lg">${depoimento.entrevista}</p>
                 <button class="block mx-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 close-button">Fechar</button>
             </div>
         </div>
@@ -469,7 +469,7 @@ export const depoimentos = [
         entrevista: entrevista1,
         endereço: "",
         desenho: "img/desenhos/2.jpg",
-        audio: "midia/testemusic.mp3"
+        audio: "midia/depoimentos/meu marido mora de aluguel.MP3"
         
     },
     {
@@ -478,7 +478,7 @@ export const depoimentos = [
         entrevista: entrevista2,
         endereço: "",
         desenho: "img/desenhos/3.jpg",
-        audio: "midia/testemusic.mp3"
+        audio: "midia/depoimentos/moro aqui desde 1962.MP3"
     },
     {
         bairro: "Funcionários",
@@ -512,7 +512,7 @@ export const depoimentos = [
         entrevista: entrevista6,
         endereço: "",
         desenho: "img/desenhos/tecnicos/11.jpg",
-        audio: "midia/testemusic.mp3"
+        audio: "midia/depoimentos/Vila Dos Tecnicos Homem.MP3"
     },
 
     {
@@ -521,7 +521,7 @@ export const depoimentos = [
         entrevista: entrevista7,
         endereço: "",
         desenho: "img/desenhos/7.jpg",
-        audio: "midia/testemusic.mp3"
+        audio: "midia/depoimentos/Moro aqui desde que eu nasci.MP3"
     },
 
     {
@@ -530,7 +530,7 @@ export const depoimentos = [
         entrevista: entrevista8,
         endereço: "",
         desenho: "img/desenhos/Quintandinha/2.jpg",
-        audio: "midia/testemusic.mp3"
+        audio: "midia/depoimentos/Moro aqui a mais de 50.MP3"
     },
 
     {
@@ -575,7 +575,7 @@ export const depoimentos = [
         entrevista: entrevista13,
         endereço: "",
         desenho: "img/desenhos/Timirim/25.jpg",
-        audio: "midia/testemusic.mp3"
+        audio: "midia/depoimentos/Timirim moro há 20 anos.MP3"
     },
 
     {
@@ -584,7 +584,7 @@ export const depoimentos = [
         entrevista: entrevista14,
         endereço: "",
         desenho: "img/desenhos/Timirim/38.jpg",
-        audio: "midia/testemusic.mp3"
+        audio: "midia/depoimentos/Timirim Idosa.MP3"
     },
 ];
 
