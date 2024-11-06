@@ -61,7 +61,7 @@ const Sobre = () => {
               <h2 className="text-2xl text-center font-bold pt-8 lg:pt-0 mt-8 animate">Integrantes</h2>
               <ul className="pt-8 text-sm grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5 mb-3 justify-items-center mx-auto animate-up">
                 <Prof></Prof>
-                <Component nome= "Prof. Carolini Tavares Frinhani" curso="Coordenadora Adjunta" funcao="Arquiteta e Urbanista, doutora em Geografia - Tratamento da Informação Espacial, Departamento de Arquitetura e Construção Civil (DACTM)" foto="img/sobre-nos/carol.png" descricao="" />
+                <Component nome= "Prof. Carolini Tavares Frinhani" curso="Coordenadora Adjunta" funcao="Arquiteta e Urbanista, doutora em Geografia - Tratamento da Informação Espacial, Departamento de Arquitetura e Construção Civil (DACTM)" foto="img/sobre-nos/carol.jpeg" descricao="" />
                 <Component nome= "Prof. Roberto Paiva" curso="Coordenador Adjunto" funcao="?" foto="img/sobre-nos/roberto.jpeg" descricao="" />
                 <Component nome= "Marcio Gabriel G. Soares" curso="Eng. Computação" funcao="Bolsista do grupo PET Interdisciplinar de Timóteo DIRGRAD/CEFET-MG" foto="img/sobre-nos/marcio.png" descricao="Aluno do curso" />
                 <Component nome= "Maria Júlia Loiola Vieira Cotta" curso="Arquitetura e Urbanismo" funcao="Bolsista do grupo PET Interdisciplinar de Timóteo DIRGRAD/CEFET-MG" foto="img/sobre-nos/maria.png" descricao="Aluna do curso" />
