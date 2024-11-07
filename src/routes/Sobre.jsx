@@ -3,6 +3,7 @@ import {Component} from '../components/CardIntegrantes'
 import { Prof } from '../components/CardProf';
 import useAnimateOnScroll from '../components/Animation';
 import emailjs from '@emailjs/browser'
+import { Prof2} from '../components/CardProf';
 
 const Sobre = () => {
   const [name, setName] = useState('')
@@ -62,7 +63,7 @@ const Sobre = () => {
               <ul className="pt-8 text-sm grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5 mb-3 justify-items-center mx-auto animate-up">
                 <Prof></Prof>
                 <Component nome= "Prof. Carolini Tavares Frinhani" curso="Coordenadora Adjunta" funcao="Arquiteta e Urbanista, doutora em Geografia - Tratamento da Informação Espacial, Departamento de Arquitetura e Construção Civil (DACTM)" foto="img/sobre-nos/carol.jpeg" descricao="" />
-                <Component nome= "Prof. Roberto Paiva" curso="Coordenador Adjunto" funcao="?" foto="img/sobre-nos/roberto.jpeg" descricao="" />
+                <Prof2></Prof2>
                 <Component nome= "Marcio Gabriel G. Soares" curso="Eng. Computação" funcao="Bolsista do grupo PET Interdisciplinar de Timóteo DIRGRAD/CEFET-MG" foto="img/sobre-nos/marcio.png" descricao="Aluno do curso" />
                 <Component nome= "Maria Júlia Loiola Vieira Cotta" curso="Arquitetura e Urbanismo" funcao="Bolsista do grupo PET Interdisciplinar de Timóteo DIRGRAD/CEFET-MG" foto="img/sobre-nos/maria.png" descricao="Aluna do curso" />
                 <Component nome= "Larissa Sírio Coelho Penna" curso="Arquitetura e Urbanismo" funcao=" Bolsista do grupo PET Interdisciplinar de Timóteo DIRGRAD/CEFET-MG" foto="img/sobre-nos/Larissa.png" descricao="Aluna do curso"/>

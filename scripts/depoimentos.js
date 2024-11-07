@@ -47,7 +47,7 @@ function exibirDepoimentos(depoimentos, containerId,containerModal) {
                     <button id="music-button-${index}" onclick="toggleMusic(${index})">
                         <div class="relative group inline-block">
                             <!-- Ícone de música -->
-                            <img id="music-icon-${index}" class="w-8 h-8 cursor-pointer" src="midia/mute.png" alt="Play music">
+                            <img id="music-icon-${index}" class="w-7 h-7 cursor-pointer" src="midia/mute.png" alt="Play music">
                             
                             <!-- Tooltip -->
                             <div class="absolute left-10 top-1/2 transform -translate-y-1/2 px-2 py-2 text-sm text-white bg-gray-800 rounded-lg opacity-0 transition-opacity duration-200 group-hover:opacity-80 w-40">
