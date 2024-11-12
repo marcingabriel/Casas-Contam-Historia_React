@@ -9,6 +9,9 @@
     z-index: 40; /* Certifique-se de que a barra de navegação esteja sobre a imagem de fundo */
 }
 
+
+
+
 :focus {
     outline: 2px solid #4A90E2; /* Cor visível para foco */
     outline-offset: 2px;

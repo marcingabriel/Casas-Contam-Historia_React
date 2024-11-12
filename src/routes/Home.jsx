@@ -60,7 +60,7 @@ const Home = () => {
       </div>
 
       <h1 className="text-3xl font-bold text-center text-gray-700 mt-8 mb-2 underline opacity-0 animate">Mapa</h1>
-      <iframe id="meuMapa" src="https://www.google.com/maps/d/u/0/embed?mid=1W8_QiOSp1uzTWyAPHwDGDDFahhPzCUo&ehbc=2E312F"  height="700" className="w-full  opacity-0 animate"></iframe>
+      <iframe id="meuMapa" src="https://www.google.com/maps/d/u/0/embed?mid=1W8_QiOSp1uzTWyAPHwDGDDFahhPzCUo&ehbc=2E312F"  height="700" className="w-full  opacity-0 animate" tabIndex="1"></iframe>
 
 
       <div className="container mx-auto mt-24">

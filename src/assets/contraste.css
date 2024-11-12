@@ -125,3 +125,23 @@
   background-color: transparent;
 
 }
+
+
+/* Estilo de alto contraste */
+.high-contrast .high-contrast-icon {
+  fill: #ffffff; /* Exemplo de cor em alto contraste */
+}
+
+
+.high-contrast .btdepoimentos {
+  background-color: #000; /* Remover cor de fundo */
+  color: #00ff00; /* Cor verde para o texto interno */
+  border: 1px solid #ffffff; /* Borda verde fluorescente */
+}
+
+.high-contrast .btdepoimentos:hover {
+  background-color: #000; /* Remover cor de fundo */
+  color: #00ff00; /* Cor verde para o texto interno */
+  border: 1px solid #ffffff; /* Borda verde fluorescente */
+  transform: scale(1.2); /* Efeito de aumento para o ativo */
+}

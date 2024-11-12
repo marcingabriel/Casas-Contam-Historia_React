@@ -1,20 +1,13 @@
 
-function exibirDepoimentos(depoimentos, containerId,containerModal) {
+function exibirDepoimentos(depoimentos, containerId, containerModal) {
     const container = document.getElementById(containerId);
     container.innerHTML = ''; // Limpa o conteúdo do container
 
     let depoimentosHtml = ''; // Variável para armazenar o HTML dos depoimentos
     let modaisHtml = ''; // Variável para armazenar o HTML dos modais
 
-
-
     const modalContainer = document.getElementById(containerModal);
     modalContainer.innerHTML = ''; // Limpa o conteúdo do contêiner de modais
-
-    
-
-
-
 
     depoimentos.forEach((depoimento, index) => {
         const depoimentoId = `depoimento-${index}`;
@@ -22,12 +15,9 @@ function exibirDepoimentos(depoimentos, containerId,containerModal) {
         const modalId = `modal-${index}`;
         const modalTextId = `modal-text-${index}`;
 
-
-        
-
         // Cria o HTML do depoimento
         depoimentosHtml += `
-        <div class="relative max-w-sm  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 md:m-2 m-5 lg:m-0 transition-transform transform hover:scale-105 hover:shadow-xl">
+        <div class="relative max-w-sm border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 md:m-2 m-5 lg:m-0 transition-transform transform hover:scale-105 hover:shadow-xl">
             <a href="#" id="${depoimentoIdImg}">
                 <img class="rounded-t-lg object-cover object-center md:h-2/5 w-full" src="${depoimento.desenho}" alt="desenho" />
             </a>
@@ -38,22 +28,11 @@ function exibirDepoimentos(depoimentos, containerId,containerModal) {
                 <h4 class="text-center font-medium text-gray-500 text-sm mb-4">${depoimento.endereço}</h4>
                 <p class="text-justify leading-relaxed text-gray-600 mb-4 text-sm md:text-base">${depoimento.texto}</p>
                 <div class="flex justify-center items-center text-center mb-4">
-                    <a href="#" id="${depoimentoId}" class="mr-6 inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-800 rounded-lg hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <a href="#" id="${depoimentoId}" class="btdepoimentos mr-6 inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-800 rounded-lg hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Ler mais
-                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                        </svg>
                     </a>
-                    <button id="music-button-${index}" onclick="toggleMusic(${index})">
-                        <div class="relative group inline-block">
-                            <!-- Ícone de música -->
-                            <img id="music-icon-${index}" class="w-8 h-8 cursor-pointer" src="midia/mute.png" alt="Play music">
-                            
-                            <!-- Tooltip -->
-                            <div class="absolute left-10 top-1/2 transform -translate-y-1/2 px-2 py-2 text-sm text-white bg-gray-800 rounded-lg opacity-0 transition-opacity duration-200 group-hover:opacity-80 w-40">
-                                Clique para reproduzir ou pausar.
-                            </div>
-                        </div>
+                  <button id="music-button-${index}" onclick="toggleMusic(${index})">
+                        <div id="music-icon-${index}" class="w-8 h-8 cursor-pointer">${muteSVG}</div>
                     </button>
                 </div>
                 <div id="audio-controls-${index}" class="hidden w-full">
@@ -65,26 +44,18 @@ function exibirDepoimentos(depoimentos, containerId,containerModal) {
 
         // Cria o HTML do modal correspondente
         modaisHtml += `
-        <div id="${modalId}" class="text-left modal hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50 ">
-            <div class="modalz bg-white p-8 rounded-lg shadow-lg w-10/12 md:w-3/4 lg:w-2/3 relative " style="max-height: calc(90%); overflow-y: auto; margin-top: 70px; ">
+        <div id="${modalId}" class="modal hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div class="modalz bg-white p-8 rounded-lg shadow-lg w-10/12 md:w-3/4 lg:w-2/3 relative" style="max-height: calc(90%); overflow-y: auto; margin-top: 70px;">
                 <button class="absolute top-2 right-2 text-gray-600 hover:text-blue-800 close-modal text-2xl">
                     &times;
                 </button>
                 <h3 class="text-center font-serif font-bold text-3xl mb-6 text-gray-800">Depoimento Completo</h3>
-                
-
                 <p id="${modalTextId}" class="text-gray-700 leading-relaxed mb-6">${depoimento.entrevista}</p>
                 <button class="block mx-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 close-button">Fechar</button>
             </div>
         </div>
     `;
-    
     });
-
-
-
-
-    
 
     // Adiciona o HTML dos depoimentos ao container original
     container.innerHTML = depoimentosHtml;
@@ -92,7 +63,7 @@ function exibirDepoimentos(depoimentos, containerId,containerModal) {
     // Adiciona o HTML dos modais ao novo contêiner
     modalContainer.innerHTML = modaisHtml;
 
-    // Adiciona eventos de clique para abrir e fechar os modais
+    // Adiciona eventos de clique e de teclado para abrir e fechar os modais
     depoimentos.forEach((depoimento, index) => {
         const depoimentoId = `depoimento-${index}`;
         const depoimentoIdImg = `depoimentoImg-${index}`;
@@ -118,10 +89,17 @@ function exibirDepoimentos(depoimentos, containerId,containerModal) {
         modal.querySelector('.close-button').addEventListener('click', function() {
             modal.classList.add('hidden');
         });
-    
+
         // Adicionando evento para fechar o modal ao clicar fora dele
         document.addEventListener('click', function(event) {
             if (event.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+
+        // Fechar o modal ao pressionar Esc
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
                 modal.classList.add('hidden');
             }
         });
@@ -131,9 +109,10 @@ function exibirDepoimentos(depoimentos, containerId,containerModal) {
             event.stopPropagation();
         });
     });
-    
-  
-} export default exibirDepoimentos;
+}
+
+export default exibirDepoimentos;
+
 
 const entrevista1 = `
 <div class="space-y-6 pr-12 pl-12 mb-4">
@@ -432,7 +411,38 @@ const entrevista14 = `
 </div>
 
 `
+const soundOnSVG = `
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"  class="high-contrast-icon ">
+        <g clip-path="url(#clip0_15_174)">
+            <rect width="24" height="24"/>
+            <path d="M3 16V8H6L11 4V20L6 16H3Z" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M13 9C13 9 15 9.5 15 12C15 14.5 13 15 13 15" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15 7C15 7 18 7.83333 18 12C18 16.1667 15 17 15 17" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M17 5C17 5 21 6.16667 21 12C21 17.8333 17 19 17 19" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <defs>
+            <clipPath id="clip0_15_174">
+                <rect width="24" height="24" fill="white"/>
+            </clipPath>
+        </defs>
+    </svg>`;
 
+const muteSVG = `
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"  class="high-contrast-icon ">
+        <g clip-path="url(#clip0_15_183)">
+            <rect width="24" height="24" />
+            <path d="M3 16V8H6L11 4V20L6 16H3Z" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14.5 15L20.5 9" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14.5 9L20.5 15" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <defs>
+            <clipPath id="clip0_15_183">
+                <rect width="24" height="24" fill="white"/>
+            </clipPath>
+        </defs>
+    </svg>`;
+
+// Função para tocar/pausar o áudio
 // Função para tocar/pausar o áudio
 function toggleMusic(index) {
     const audioElement = document.getElementById(`audio-${index}`);
@@ -442,15 +452,16 @@ function toggleMusic(index) {
     if (audioElement.paused) {
         // Toca o áudio e exibe os controles abaixo do botão
         audioElement.play();
-        musicIcon.src = 'midia/volume.png';
+        musicIcon.innerHTML = soundOnSVG; // Muda o ícone para som ligado
         controlsContainer.classList.remove('hidden');
     } else {
         // Pausa o áudio e oculta os controles
         audioElement.pause();
-        musicIcon.src = 'midia/mute.png';
-        controlsContainer.classList.add('hidden');
+        musicIcon.innerHTML = muteSVG; // Muda o ícone para mudo
+        controlsContainer.classList.add('hidden ');
     }
 }
+
 
 
 

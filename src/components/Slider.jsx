@@ -10,7 +10,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import '../assets/slider.css';
-import '../assets/contraste.css'
+import '../assets/contraste.css';
 
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 
@@ -71,7 +71,6 @@ export function Slider({ casas, quantidadeCasas }) {
           className="swiper_container"
           onSlideChange={handleSlideChange}
         >
-          {/* Renderização condicional para manter o pagination estático */}
           {[...Array(quantidadeCasas)].map((_, index) => (
             <SwiperSlide key={index}>
               {(index < 5 || index >= quantidadeCasas - 5 || index < casasRenderizadas) && casas[index] ? (
@@ -83,26 +82,37 @@ export function Slider({ casas, quantidadeCasas }) {
                     className="block w-full cursor-pointer transition-opacity duration-700 ease-in-out transform hover:opacity-90 hover:scale-110 lazy-load-image-background"
                     afterLoad={() => document.querySelector('.lazy-load-image-background').classList.add('lazy-load-image-loaded')}
                     onClick={() => openDrawer(casas[index])}
-                    title="Clique para ver mais informações"
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') openDrawer(casas[index]);
+                    }}
+                    tabIndex={0}
+                    aria-label={`Detalhes da casa em ${casas[index].endereco}`}
+                    title="Clique ou pressione Enter para ver mais informações"
                   />
-
-
                   <p className="absolute bottom-2 left-2 text-white bg-black bg-opacity-40 px-2 py-1 text-sm">{casas[index].endereco}</p>
                 </div>
               ) : (
-                <div className="invisible" /> // Slide invisível para manter a estrutura do pagination
+                <div className="invisible" />
               )}
             </SwiperSlide>
           ))}
 
           <div className="slider-controler flex justify-between items-center">
-            <div className="swiper-button-prev slider-arrow text-white">
+            <button
+              className="swiper-button-prev slider-arrow text-white"
+              tabIndex={0}
+              aria-label="Slide anterior"
+            >
               <ion-icon name="arrow-back-outline"></ion-icon>
-            </div>
+            </button>
             <div className="swiper-pagination text-white text-base"></div>
-            <div className="swiper-button-next slider-arrow text-white">
+            <button
+              className="swiper-button-next slider-arrow text-white"
+              tabIndex={0}
+              aria-label="Próximo slide"
+            >
               <ion-icon name="arrow-forward-outline"></ion-icon>
-            </div>
+            </button>
           </div>
         </Swiper>
       </div>
