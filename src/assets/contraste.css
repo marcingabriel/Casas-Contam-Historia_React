@@ -145,7 +145,6 @@
   border: 1px solid #ffffff; /* Borda verde fluorescente */
   transform: scale(1.2); /* Efeito de aumento para o ativo */
 }
-background-color: black; /* Cor de fundo do input */
 
 .high-contrast input::placeholder {
   color: #00ff00; /* Cor verde para o texto interno */
