@@ -132,7 +132,7 @@ const NavBar = () => {
           </ul>
         </div>
       </div>
-    
+      {/*<ToastComponent></ToastComponent> */}
     </nav>
   );
 };

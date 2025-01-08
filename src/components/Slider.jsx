@@ -18,6 +18,7 @@ export function Slider({ casas, quantidadeCasas }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedCasa, setSelectedCasa] = useState(null);
   const [casasRenderizadas, setCasasRenderizadas] = useState(5); // Renderiza 5 inicialmente
+  const [loading, setLoading] = useState(Array(quantidadeCasas).fill(true)); // Estado para controle do loading
 
   useAnimateOnScroll();
 
@@ -37,6 +38,12 @@ export function Slider({ casas, quantidadeCasas }) {
     }
   };
 
+  const handleImageLoad = (index) => {
+    const updatedLoading = [...loading];
+    updatedLoading[index] = false;
+    setLoading(updatedLoading);
+  };
+
   return (
     <div>
       <div className="containerSlider animate-up opacity-0">
@@ -44,8 +51,8 @@ export function Slider({ casas, quantidadeCasas }) {
           effect={'coverflow'}
           grabCursor={true}
           centeredSlides={true}
-          loop={true} // Habilita o loop
-          loopFillGroupWithBlank={true} // Preenche espaços em branco
+          loop={true}
+          loopFillGroupWithBlank={true}
           slidesPerView={'auto'}
           coverflowEffect={{
             rotate: 0,
@@ -75,12 +82,17 @@ export function Slider({ casas, quantidadeCasas }) {
             <SwiperSlide key={index}>
               {(index < 5 || index >= quantidadeCasas - 5 || index < casasRenderizadas) && casas[index] ? (
                 <div className="relative slide-content">
+                  {loading[index] && (
+                    <div className="spinner absolute inset-0 flex items-center justify-center">
+                      <div className="loader border-t-4 border-blue-500 rounded-full w-8 h-8 animate-spin"></div>
+                    </div>
+                  )}
                   <LazyLoadImage
                     src={casas[index].casa}
                     effect="blur"
                     placeholderSrc="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkZGRkIi8+"
-                    className="block w-full cursor-pointer transition-opacity duration-700 ease-in-out transform hover:opacity-90 hover:scale-110 lazy-load-image-background"
-                    afterLoad={() => document.querySelector('.lazy-load-image-background').classList.add('lazy-load-image-loaded')}
+                    className={`block w-full cursor-pointer transition-opacity duration-700 ease-in-out transform hover:opacity-90 hover:scale-110 lazy-load-image-background ${loading[index] ? 'opacity-0' : 'opacity-100'}`}
+                    afterLoad={() => handleImageLoad(index)}
                     onClick={() => openDrawer(casas[index])}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' || e.key === ' ') openDrawer(casas[index]);

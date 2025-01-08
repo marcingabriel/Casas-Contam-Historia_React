@@ -38,43 +38,54 @@ export function DrawerComponent({ isOpen, handleClose, desenho, casa, endereco, 
 
   return (
     <>
-  <Drawer open={isOpen} onClose={handleClose} style={{ width: "50vw", maxWidth: "450px" }}>
-    <Drawer.Header className="p-4 border-b border-gray-200" title="Informações" />
-    <Drawer.Items className="mt-1 md:p-4 flex flex-col space-y-4 overflow-y-auto">
-      <div>
-        <h1 className="md:text-xl font-semibold mb-2">Desenho da Casa</h1>
-        <Tooltip content="Clique para ampliar" placement="bottom">
-          <LazyLoadImage
-            src={desenho}
-            effect="blur"
-            alt="Desenho da casa"
-            className="cursor-pointer hover:opacity-75 transition-opacity"
-            onClick={() => openModal(desenho)}
-          />
-        </Tooltip>
-      </div>
-      <div className ="max-h-96">
-        <h1 className="md:text-xl font-semibold mb-2">Casa</h1>
-        <Tooltip content="Clique para ampliar" placement="bottom">
-          <LazyLoadImage
-            src={casa}
-            effect="blur"
-            alt="Foto da casa"
-            className="cursor-pointer hover:opacity-75 transition-opacity  w-full"
-            onClick={() => openModal(casa)}
-          />
-        </Tooltip>
-      </div>
-    </Drawer.Items>
-    <h2 className="text-lg mt-4">{endereco}</h2>
-    <div className="p-4 border-t border-gray-200">
-      <Button 
-        className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
-        onClick={() => window.open(mapa, '_blank')}>
-          Mapa
-      </Button>
-    </div>
-  </Drawer>
+        <Drawer
+        open={isOpen}
+        onClose={handleClose}
+        style={{ width: "50vw", maxWidth: "450px" }}
+      >
+        <Drawer.Header className="p-4 border-b border-gray-200" title="Informações" />
+        
+        <Drawer.Items className="mt-1 md:p-4 flex flex-col space-y-4 overflow-y-auto max-h-[70vh]">
+          <div>
+            <h1 className="md:text-xl font-semibold mb-2">Desenho da Casa</h1>
+            <Tooltip content="Clique para ampliar" placement="bottom">
+              <LazyLoadImage
+                src={desenho}
+                effect="blur"
+                alt="Desenho da casa"
+                className="cursor-pointer hover:opacity-75 transition-opacity max-h-[400px]"
+                onClick={() => openModal(desenho)}
+              />
+            </Tooltip>
+          </div>
+          
+          <div className="max-h-96 mx-auto">
+            <h1 className="md:text-xl font-semibold mb-2">Casa</h1>
+            <Tooltip content="Clique para ampliar" placement="bottom">
+              <LazyLoadImage
+                src={casa}
+                effect="blur"
+                alt="Foto da casa"
+                className="cursor-pointer hover:opacity-75 transition-opacity w-full max-h-[400px] object-cover mx-auto"
+                onClick={() => openModal(casa)}
+              />
+            </Tooltip>
+          </div>
+        </Drawer.Items>
+
+        <div className="p-2 border-t border-gray-200">
+          <h2 className="text-lg mt-1">{endereco}</h2>
+        </div>
+        
+        <div className="p-4 border-t border-gray-200 sticky bottom-0 bg-white">
+          <Button 
+            className="w-full mb-5 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+            onClick={() => window.open(mapa, '_blank')}
+          >
+            Mapa
+          </Button>
+        </div>
+      </Drawer>
 
 
 <Modal show={isModalOpen} onClose={closeModal} size="4xl">
