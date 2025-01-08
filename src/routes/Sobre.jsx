@@ -43,12 +43,12 @@ const Sobre = () => {
     <div className="font-sans text-gray-900 leading-normal tracking-wider bg-cover">
       <div className="flex items-center justify-center min-h-screen">
         <div className="max-w-6xl flex items-center h-auto  flex-wrap my-32 lg:my-0">
-          <div id="profile" className="w-full rounded-lg lg:rounded-l-lg lg:rounded-r-none md:shadow-2xl bg-white mx-6 lg:mx-0">
+          <div id="profile" className="w-full rounded-lg lg:rounded-l-lg lg:rounded-r-none md:shadow-2xl mx-6 lg:mx-0">
             <div className="p-4 md:p-20 text-center lg:text-left mt-10">
               <h1 className="text-3xl text-center font-bold pt-8 lg:pt-0 animate">Sobre nós</h1>
               <div className="mx-auto lg:mx-0 w-full pt-3 border-b-2 border-green-500 opacity-25"></div>
 
-              <p className="pt-8 text-md text-justify animate-left">
+              <p className=" pt-8 text-md text-justify animate-left">
               Em 2023, após a demolição de um relevante edifício histórico municipal, a antiga sede da fazenda que serviu como primeiro hotel na cidade, o Hotel Acesita, 
               observou-se que apesar de possuir um patrimônio arquitetônico inventariado, o município de Timóteo não prosseguiu nas ações de preservação, visto que não foram constatadas ações de Tombamento de edifícios significativos. Assim, os mesmos encontram-se em situação vulnerável, tornando-se alvo fácil para a especulação imobiliária, indiferente à importância da preservação da história. Diante disso, sob a orientação do prof. Dr. Fábio Azevedo Vasconcellos, com a co-orientação da prof.ª Dra. Carolini Frinhani Tavares e do prof. Roberto Paiva, a pesquisa intitulada “As Casas Contam História” selecionada pelo edital de PIBIC edital DPPG 182/2022, iniciou-se em 2023 com a participação das alunas Maria Júlia Cotta e Lara Gabrielle do curso de Arquitetura e Urbanismo do CEFET-MG, do campus Timóteo. Naquele ano, a pesquisa deu início ao levantamento e observação das condições de preservação do patrimônio histórico de Timóteo. Em 2024, o projeto passou a contar com o apoio do {' '}
               <span 
@@ -78,7 +78,7 @@ const Sobre = () => {
               </p>
 
               <h2 className="text-2xl text-center font-bold pt-8 lg:pt-0 mt-8 animate">Contato</h2>
-              <section className="bg-white dark:bg-gray-900 animate-up">
+              <section className=" dark:bg-gray-900 animate-up">
                 <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                   <form action="#" className="space-y-8" onSubmit={sendEmail}>
                     <div>
@@ -93,7 +93,7 @@ const Sobre = () => {
                       <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Mensagem</label>
                       <textarea id="message" value={message} rows="6" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" onChange={(e) => setMessage(e.target.value)} placeholder="Sua mensagem ..." />
                     </div>
-                    <button type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Enviar</button>
+                    <button type="submit" className="btdepoimentos py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Enviar</button>
                   </form>
                   {successMessage && (  // Exibe a mensagem de sucesso se ela existir
                   <div className="mt-4 p-3 bg-green-100 text-green-700 rounded-lg">

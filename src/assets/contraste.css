@@ -1,0 +1,171 @@
+.high-contrast {
+  background-color: #000; /* Fundo preto para máximo contraste */
+  color: #fff; /* Texto branco */
+}
+
+/* Links com cor contrastante */
+.high-contrast a, .high-contrast label {
+  color: #00ff00; /* Verde fluorescente para destaque */
+}
+
+/* Cabeçalhos com contraste alto */
+.high-contrast h1, .high-contrast h2, .high-contrast h3, .high-contrast h4, 
+.high-contrast h5, .high-contrast h6 {
+  color: #fff;
+}
+
+/* Parágrafos e textos */
+.high-contrast p, .high-contrast span, .high-contrast li, 
+.high-contrast dt, .high-contrast dd {
+  color: #fff;
+}
+
+/* Divs e áreas de destaque */
+.high-contrast div, .high-contrast section, .high-contrast article, 
+.high-contrast header, .high-contrast footer, .high-contrast nav, 
+.high-contrast aside {
+  color: #fff;
+}
+
+/* Input, textarea e botão com borda de contraste alto */
+.high-contrast input, .high-contrast textarea, .high-contrast select, 
+.high-contrast button {
+  color: #000;
+  background-color: #fff;
+  
+}
+
+/* Outros elementos de texto */
+.high-contrast blockquote, .high-contrast code, .high-contrast pre {
+  color: #fff;
+}
+
+/* Tabelas com contraste nas células */
+.high-contrast table, .high-contrast th, .high-contrast td {
+  color: #fff;
+  border: 1px solid #00ff00; /* Borda verde para visibilidade */
+}
+
+/* Listas com marcadores de alto contraste */
+.high-contrast ul, .high-contrast ol {
+  color: #fff;
+}
+
+/* Estilização específica para o Swiper no modo de alto contraste */
+.high-contrast .swiper-pagination {
+  color: #00ff00; /* Texto/verdes para os números de paginação */
+}
+
+.high-contrast .swiper-pagination-bullet {
+  color: #00ff00; /* Texto/verdes para os números de paginação */
+  opacity: 1; /* Opacidade máxima */
+}
+
+.high-contrast .swiper-pagination-bullet-active {
+  color: #fff;
+  transform: scale(1.2); /* Efeito de aumento para o ativo */
+  opacity: 1; /* Opacidade máxima */
+}
+
+.high-contrast .slider-controler .slider-arrow ion-icon {
+  color: #00ff00; /* Cor verde fluorescente para contraste */
+}
+
+.high-contrast .swiper-slide {
+  background-color: #000; /* Fundo preto */
+  color: #fff; /* Texto branco */
+}
+
+/* Estilo adicional para hover e foco */
+.high-contrast .slider-controler .slider-arrow ion-icon:hover {
+  color: #fff; /* Cor ao passar o mouse */
+  transform: scale(1.2); /* Efeito de aumento para o ativo */
+}
+
+.high-contrast button.relative.inline-flex.items-center {
+  color: #00ff00; /* Texto verde fluorescente */
+}
+
+.high-contrast button.relative .bthome {
+  background-color: #000; /* Remover cor de fundo */
+  color: #00ff00; /* Cor verde para o texto interno */
+}
+
+.high-contrast button.relative .bthome:hover {
+  background-color: #000; /* Fundo preto ao passar o mouse */
+  color: #fff; /* Texto branco */
+  transform: scale(1.2); /* Efeito de aumento para o ativo */
+}
+
+.high-contrast .group[data-testid="carousel-right-control"] span,
+.high-contrast .group span {
+  background-color: #000; /* Fundo preto para máximo contraste */
+  border: 1px solid #00ff00; /* Borda verde fluorescente */
+}
+
+.high-contrast .group[data-testid="carousel-right-control"] span svg,
+.high-contrast .group span svg {
+  color: #00ff00; /* Ícone em verde fluorescente */
+  stroke: #00ff00; /* Cor da borda do ícone */
+}
+
+.high-contrast .group[data-testid="carousel-right-control"] span:hover,
+.high-contrast .group span:hover {
+  transform: scale(1.2); /* Efeito de aumento para o ativo */
+}
+
+.high-contrast .group[data-testid="carousel-right-control"]:focus span,
+.high-contrast .group:focus span {
+  outline: 2px solid #00ff00; /* Foco com borda verde */
+  box-shadow: 0 0 5px #00ff00; /* Sombra para visibilidade */
+}
+
+.high-contrast input, .high-contrast textarea, .high-contrast select, .high-contrast button {
+  color: #000;
+  background-color: transparent;
+
+}
+
+
+/* Estilo de alto contraste */
+.high-contrast .high-contrast-icon {
+  fill: #ffffff; /* Exemplo de cor em alto contraste */
+}
+
+
+.high-contrast .btdepoimentos {
+  background-color: #000; /* Remover cor de fundo */
+  color: #00ff00; /* Cor verde para o texto interno */
+  border: 1px solid #ffffff; /* Borda verde fluorescente */
+}
+
+.high-contrast .btdepoimentos:hover {
+  background-color: #000; /* Remover cor de fundo */
+  color: #00ff00; /* Cor verde para o texto interno */
+  border: 1px solid #ffffff; /* Borda verde fluorescente */
+  transform: scale(1.2); /* Efeito de aumento para o ativo */
+}
+
+.high-contrast input::placeholder {
+  color: #00ff00; /* Cor verde para o texto interno */
+  font-style: italic; /* Opcional: estilizar o texto */
+}
+
+.high-contrast input {
+  color: yellow; /* Cor do texto digitado */
+  font-size: 16px; /* Tamanho da fonte */
+}
+
+
+/* Estilo do texto digitado no textarea dentro de .high-contrast */
+.high-contrast textarea {
+  color: yellow; /* Cor do texto digitado */
+  font-size: 14px; /* Ajuste do tamanho da fonte */
+}
+
+/* Estilo do placeholder no textarea dentro de .high-contrast */
+.high-contrast textarea::placeholder {
+  color: #00ff00; /* Cor verde para o texto interno */
+  font-style: italic; /* Opcional: estilizar o texto */
+}
+
