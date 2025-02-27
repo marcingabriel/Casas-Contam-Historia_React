@@ -60,7 +60,10 @@ const Home = () => {
           
           <h2 className="text-justify roboto text-2xl font-semibold mb-2 text-gray-700 opacity-0 animate-up mt-8">O que é o Projeto “As Casas contam história”.</h2>
           <p className="roboto text-lg text-gray-700 text-justify opacity-0 animate-left">
-            O mapa "As casas contam história" é um projeto que visa mapear e catalogar as residências ainda existentes na cidade de Timóteo, que foram construídas durante a fase de implantação da siderúrgica ACESITA, hoje APERAM, para atender aos seus funcionários. Ele registra não apenas a localização física dessas casas, mas também informações relevantes sobre sua história, arquitetura e contexto social. Este mapa serve como um inventário artístico e histórico, contribuindo para sensibilizar a população sobre a importância de preservar o patrimônio histórico de Timóteo e proteger suas edificações antigas.
+          O projeto "As casas contam história" é um projeto que visa mapear e catalogar as residências que foram construídas durante a fase de implantação da siderúrgica 
+          ACESITA, hoje APERAM, ainda existentes na cidade de Timóteo. Essas edificações faziam parte de um programa de criação de infraestrutura que estimulasse a vinda e 
+          permanência de operários na empresa.  Ele registra não apenas a localização física dessas casas, mas também informações relevantes sobre sua história, arquitetura
+           e contexto social.
           </p>
           
           <h2 className=" text-left  roboto text-2xl font-semibold mb-2 text-gray-700 opacity-0 animate-up mt-8">Objetivo.</h2>

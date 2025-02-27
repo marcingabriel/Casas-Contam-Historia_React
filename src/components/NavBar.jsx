@@ -46,7 +46,7 @@ const NavBar = () => {
               </svg>
             </a>
 
-            <a href="#" tabIndex="0" aria-label="Logo Instagram">
+            <a href="https://www.instagram.com/ascasascontamhistoria/" target="_blank" tabIndex="0" aria-label="Logo Instagram">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
